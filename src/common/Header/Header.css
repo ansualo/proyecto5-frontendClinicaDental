@@ -1,10 +1,8 @@
 .headerDesign{
-    height: 15vh;
+    height: 10vh;
     width: 100vw;
-    background-color: lightgreen;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgb(179, 178, 178);
+    border: 0.08em solid darkslategray;
 }
 
 .linkDesign{
@@ -16,3 +14,37 @@
 .linkDesign:hover{
     color:white;
 }
+
+
+@media screen and (min-width: 1025px) {
+
+    .menuLeft, .phone, .timetable, .menuRight{
+        height: 10vh;
+        border: 0.08em solid darkslategray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .menuLeft{
+        width: 32vw;
+        justify-content: space-evenly;
+    }
+    
+    .timetable{
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .phone{
+        width: 15vw;
+    }
+    
+    .menuRight{
+        width: 17.5vw;
+        justify-content: space-evenly;
+    }
+
+}
+
