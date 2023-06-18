@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import { InputForm } from '../../common/InputForm/InputForm'
 import { Col, Row } from 'react-bootstrap';
+import { CustomButton } from '../../common/CustomButton/CustomButton';
 
 export const Login = () => {
 
@@ -40,6 +41,7 @@ export const Login = () => {
                         />
                     </Col>
                 </Row>
+                <CustomButton name="Enviar"/>
             </div>
         </div>
     )
