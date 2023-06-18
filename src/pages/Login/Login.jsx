@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Login.css'
 import { InputForm } from '../../common/InputForm/InputForm'
+import { Col, Row } from 'react-bootstrap';
 
 export const Login = () => {
 
@@ -17,24 +18,29 @@ export const Login = () => {
     }
 
     return(
-        <div class="loginDesign">LOGIN
+        <div class="loginDesign">
             <div className="formDesign">
-                <InputForm
-                    label= {"Email"}
-                    name={"email"}
-                    type={"email"}
-                    placeholder={"Insert your email"} 
-                    functionHandler={InputHandler}
-                />
-                <InputForm 
-                    label= {"Password"}
-                    name={"password"}
-                    type={"password"}
-                    placeholder={"Insert your password"} 
-                    functionHandler={InputHandler}
-                />
+                <Row>
+                    <Col sm={10} md={12}>
+                        <InputForm
+                            label= {"Email"}
+                            name={"email"}
+                            type={"email"}
+                            placeholder={"ejemplo@ejemplo.com"} 
+                            functionHandler={InputHandler}
+                        />
+                    </Col>
+                    <Col sm={10} md={12}>
+                        <InputForm 
+                            label= {"Contraseña"}
+                            name={"password"}
+                            type={"password"}
+                            placeholder={"***********"} 
+                            functionHandler={InputHandler}
+                        />
+                    </Col>
+                </Row>
             </div>
-        
         </div>
     )
 }
