@@ -1,0 +1,9 @@
+.inputDesign{
+    margin: 1em;
+}
+
+.formDesign{
+    border: 0.1em solid darkslategray;
+    padding: 2em;
+    text-align: start;
+}
