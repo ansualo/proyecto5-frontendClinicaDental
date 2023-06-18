@@ -15,7 +15,6 @@ const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
 const calendarIcon = <FontAwesomeIcon icon={faCalendar} />
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
-
 export const Header = () => {
 
 //     const navigate = useNavigate();
@@ -33,7 +32,15 @@ export const Header = () => {
   return (
     <Navbar expand="lg" className="headerDesign">
       <Container className="m-0 p-0">
-        <Navbar.Brand className="px-5" href="/">Clinica Dental</Navbar.Brand>
+        <Navbar.Brand className="px-3" href="/">
+            <img
+              src="src\assets\img\clinica-dental-high-resolution-logo-black-on-transparent-background.png"
+              width="180vw"
+              height="35h"
+              className="d-inline-block align-top"
+              alt="Clinica dental logo"
+            />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 
