@@ -1,0 +1,10 @@
+.homeDesign{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: beige;
+    color: darkslategray;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
