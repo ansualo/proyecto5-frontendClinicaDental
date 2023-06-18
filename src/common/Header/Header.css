@@ -1,0 +1,18 @@
+.headerDesign{
+    height: 15vh;
+    width: 100vw;
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkDesign{
+    color: darkslategray;
+    font-weight: bold;
+    margin: 2em
+}
+
+.linkDesign:hover{
+    color:white;
+}
