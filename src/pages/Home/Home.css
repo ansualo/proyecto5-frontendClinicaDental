@@ -1,9 +1,40 @@
 .homeDesign{
-    min-height: 90vh;
+    min-height: 85vh;
     width: 100vw;
-    background-color: beige;
+    display: flex;
+    background-color:gainsboro;
+}
+
+.row-width{
+    min-width: 50vw;
+}
+
+.square1{
+    font-size: xx-large;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
+.square2{
+    background-image: url('../../assets/img/menu2.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 10em;
+}
+
+.square3{
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.square4{
+    background-image: url('../../assets/img/menu1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
