@@ -1,5 +1,5 @@
 .aboutDesign{
-    height: 90vh;
+    height: 85vh;
     width: 100vw;
     background-color:gainsboro;
     display: flex;
@@ -7,14 +7,13 @@
 }
 
 .aboutText{
-    height: 90vh;
+    height: 85vh;
     width: 45vw;
     padding: 2em;
-
 }
 
 .aboutImage{
-    height: 90vh;
+    height: 85vh;
     width: 70vw;
     background-image: url('../../assets/img/about.jpg');
     background-repeat: no-repeat;
@@ -22,3 +21,49 @@
     margin-bottom: 5em;
     margin-right: 1em;
 }
+
+@media (min-width: 577px) and (max-width: 1024px) {
+
+    .aboutText{
+        min-height: 45vh;
+        width: 70vw;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .aboutImage{
+        min-height: 50vh;
+        width: 70vw;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .aboutDesign{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .aboutDesign{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .aboutText{
+        overflow-y: auto;
+        width: 90vw;
+    }
+
+    .aboutImage{
+        display: none;
+    }
+  
+  }
