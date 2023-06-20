@@ -11,7 +11,11 @@
     cursor: pointer;
     transition: border-color 0.25s;
     margin: 2em;
+    transition: 0.5s;
   }
+
   .buttonDesign:hover {
     border-color: #0b4607;
+    transition: 0.5s;
+    transform: scale(1.05)
   }
