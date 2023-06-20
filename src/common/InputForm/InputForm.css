@@ -1,9 +1,14 @@
-.inputDesign{
-    margin: 0.5em;
-}
-
 .formDesign{
     border: 0.1em solid black;
     padding: 2em;
     text-align: start;
+}
+
+.inputDesign{
+    margin: 0.5em;
+}
+
+.errorInput {
+    color: red;
+    margin-bottom: 0.5em;
 }

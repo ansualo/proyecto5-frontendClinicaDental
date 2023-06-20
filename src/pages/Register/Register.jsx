@@ -30,6 +30,7 @@ export const Register = () => {
                 <Row>
                     <Col sm={10} md={6}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Nombre"}
                             name={"name"}
                             type={"text"}
@@ -38,6 +39,7 @@ export const Register = () => {
                     </Col>
                     <Col sm={10} md={6}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Apellidos"}
                             name={"surname"}
                             type={"text"}
@@ -48,6 +50,7 @@ export const Register = () => {
                 <Row>
                     <Col sm={10} md={6}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Fecha de nacimiento"}
                             name={"birth"}
                             type={"text"}
@@ -57,6 +60,7 @@ export const Register = () => {
                     </Col>
                     <Col sm={10} md={6}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Número de teléfono"}
                             name={"phone"}
                             type={"text"}
@@ -68,6 +72,7 @@ export const Register = () => {
                 <Row>
                     <Col sm={10} md={12}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Dirección"}
                             name={"address"}
                             type={"text"}
@@ -76,6 +81,7 @@ export const Register = () => {
                     </Col>
                     <Col sm={10} md={6}>
                         <InputForm
+                            design={"inputDesign"}
                             label= {"Email"}
                             name={"email"}
                             type={"email"}
@@ -85,6 +91,7 @@ export const Register = () => {
                     </Col>
                     <Col sm={10} md={6}>
                         <InputForm 
+                            design={"inputDesign"}
                             label= {"Contraseña"}
                             name={"password"}
                             type={"password"}
