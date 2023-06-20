@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+// import jwt_decode from "jwt-decode";
 import './Login.css'
 import { InputForm } from '../../common/InputForm/InputForm'
 import { Col, Row } from 'react-bootstrap';
 import { CustomButton } from '../../common/CustomButton/CustomButton';
 import { checkError } from '../../services/useful';
+// import { loginMe } from '../../services/apiCalls';
 
 export const Login = () => {
 
@@ -34,8 +36,17 @@ export const Login = () => {
         }))
     }
 
+    // const logMe = () => {
+    //     loginMe(inputInfo)
+    //         .then((resultado) => {
+    //             let decodificado = jwt_decode(resultado.data.token);
+    //             console.log(decodificado)
+    //         })
+    //         .catch((error) => console.log(error))
+    // }
+
     return(
-        <div class="loginDesign">
+        <div className="loginDesign">
             <div className="formDesign">
                 <Row>
                     <Col sm={10} md={12}>
@@ -64,6 +75,10 @@ export const Login = () => {
                     </Col>
                 </Row>
                 <CustomButton name="Enviar"/>
+                {/* <div onClick={() => logMe()} className="botonLogin">
+                    Login me!
+                </div> */}
+
             </div>
         </div>
     )

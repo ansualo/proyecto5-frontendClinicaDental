@@ -1,0 +1,24 @@
+.aboutDesign{
+    height: 90vh;
+    width: 100vw;
+    background-color:gainsboro;
+    display: flex;
+    align-items: center;
+}
+
+.aboutText{
+    height: 90vh;
+    width: 45vw;
+    padding: 2em;
+
+}
+
+.aboutImage{
+    height: 90vh;
+    width: 70vw;
+    background-image: url('../../assets/img/about.jpg');
+    background-repeat: no-repeat;
+    background-size: contain; 
+    margin-bottom: 5em;
+    margin-right: 1em;
+}
