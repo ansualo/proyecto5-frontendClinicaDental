@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css'
 import { Col, Row } from 'react-bootstrap'
-import { CustomButton } from '../../common/CustomButton/CustomButton';
+import { NavigateButton } from '../../common/NavigateButton/NavigateButton';
 
 export const Home = () => {
 
@@ -12,7 +12,7 @@ export const Home = () => {
                 <Col className="square2" sm={10} md={7}></Col>
                 <Col className="square3 px-5" sm={10} md={5}>
                     Nuestro equipo de profesionales altamente capacitados está dedicado a ofrecerte tratamientos dentales de vanguardia, combinados con un enfoque cálido y acogedor
-                    <CustomButton name="Pide tu cita" path='/citas'></CustomButton>
+                    <NavigateButton name="Pide tu cita" path='/citas'></NavigateButton>
                 </Col>
 
             </Row>

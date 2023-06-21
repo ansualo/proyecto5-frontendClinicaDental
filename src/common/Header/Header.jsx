@@ -4,7 +4,7 @@ import './Header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { CustomButton } from '../../common/CustomButton/CustomButton';
+import { NavigateButton } from '../NavigateButton/NavigateButton';
 
 export const Header = () => {
   return (
@@ -26,7 +26,7 @@ export const Header = () => {
             <Nav.Link href="/nosotros" className="me-4">Nosotros</Nav.Link>
             <Nav.Link href="/" className="me-4">Tratamientos</Nav.Link>
             <Nav.Link href="/" className="me-4">Consulta</Nav.Link>
-            <CustomButton name="Inicia sesión" path="/login" />
+            <NavigateButton name="Inicia sesión" path="/login" />
             <Nav.Link href="/register" className="me-4">Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>

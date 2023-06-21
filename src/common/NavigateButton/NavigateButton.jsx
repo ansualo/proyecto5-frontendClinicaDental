@@ -1,8 +1,8 @@
 import React from "react";
-import './CustomButton.css'
+import './NavigateButton.css'
 import { useNavigate } from 'react-router-dom';
 
-export const CustomButton = ({name, path}) => {
+export const NavigateButton = ({name, path}) => {
 
     const navigate = useNavigate();
     return (

@@ -3,10 +3,10 @@ import jwt_decode from "jwt-decode";
 import './Login.css'
 import { InputForm } from '../../common/InputForm/InputForm'
 import { Col, Row } from 'react-bootstrap';
-import { CustomButton } from '../../common/CustomButton/CustomButton';
 import { checkError } from '../../services/useful';
 import { loginMe } from '../../services/apiCalls';
 import { useNavigate } from 'react-router-dom';
+import { FunctionButton } from '../../common/FunctionButton/FunctionButton';
 
 export const Login = () => {
 
@@ -88,10 +88,7 @@ export const Login = () => {
                             <div className="errorInput">{inputError.passwordError}</div>
                         </Col>
                     </Row>
-                    <CustomButton name="Enviar"/>
-                    <div onClick={() => logMe()} className="botonLogin">
-                        Login me!
-                    </div>
+                    <FunctionButton name="Enviar" action={()=>logMe()} />
                 </div>
             )}
         </div>

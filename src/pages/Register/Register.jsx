@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Register.css'
 import { InputForm } from "../../common/InputForm/InputForm";
 import { Col, Row } from 'react-bootstrap';
-import { CustomButton } from "../../common/CustomButton/CustomButton";
+import { NavigateButton } from "../../common/NavigateButton/NavigateButton";
 
 export const Register = () => {
 
@@ -100,7 +100,7 @@ export const Register = () => {
                         />
                     </Col>
                 </Row>
-                <CustomButton name="Enviar"/>
+                <NavigateButton name="Enviar"/>
             </div>
         </div>
     )
