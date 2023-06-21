@@ -8,7 +8,10 @@ export const checkError = (name, value) => {
             return "";
         
         case "password":
-            if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/.test(value)){
+            
+            if(value.length < 8){
+            // if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/.test(value)){
+                
                 return "La contraseña es incorrecta"
             }
             return "";
