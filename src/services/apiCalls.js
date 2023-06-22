@@ -14,3 +14,8 @@ export const getProfile = async (profileInfo) => {
 
     return await axios.get('http://localhost:3000/users/profile', profileInfo)
 }
+
+export const getAllProfiles = async (profilesInfo) => {
+
+    return await axios.get('http://localhost:3000/users/patients', profilesInfo)
+}

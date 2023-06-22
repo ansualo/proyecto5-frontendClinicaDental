@@ -1,0 +1,53 @@
+.AllProfilesDesign{
+    min-height: 85vh;
+    width: 100vw;
+    background-color:gainsboro;
+}
+
+.profilesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.eachProfile{
+    background-color: white;
+    border-radius: 1em;
+    padding: 0.5em;
+    padding-top: 1em ;
+    margin: 1em;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+
+.profileRow{
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .profileRow{
+        width: 39em;
+    }
+}
+
+.AllProfilesLabel{
+    background-color: rgb(48, 131, 55);
+    color: white;
+    margin-bottom: 0.5em;
+    text-align: start;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.1em;
+    border-radius: 0.5em;
+}
+
+.AllProfilesInfo{
+    background-color: rgb(235, 235, 235);
+    margin-bottom: 1em;
+    text-align: start;
+    padding: 0.1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+}
