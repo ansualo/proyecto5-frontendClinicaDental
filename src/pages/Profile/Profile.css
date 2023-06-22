@@ -1,0 +1,27 @@
+.profileDesign{
+    min-height: 85vh;
+    width: 100vw;
+    background-color:gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileLabel{
+
+    background-color: rgb(48, 131, 55);
+    color: white;
+    margin-bottom: 0.5em;
+    text-align: start;
+    font-weight: bold;
+    padding: 0.3em;
+    border-radius: 0.5em;
+}
+
+.profileInfo{
+    background-color: white;
+    margin-bottom: 1em;
+    text-align: start;
+    padding: 0.2em;
+    border-radius: 0.5em;
+}

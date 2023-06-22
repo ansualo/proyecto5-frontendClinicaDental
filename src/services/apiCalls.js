@@ -9,3 +9,8 @@ export const registerMe = async (inputInfo) => {
 
     return await axios.post('http://localhost:3000/auth/register', inputInfo)
 }
+
+export const getProfile = async (profileInfo) => {
+
+    return await axios.get('http://localhost:3000/users/profile', profileInfo)
+}
