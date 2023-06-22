@@ -70,6 +70,7 @@ export const Login = () => {
                                 name={"email"}
                                 type={"email"}
                                 placeholder={"ejemplo@ejemplo.com"} 
+                                maxLength={20}
                                 functionHandler={InputHandler}
                                 onBlurFunction={inputCheck}
                             />
@@ -81,7 +82,8 @@ export const Login = () => {
                                 label= {"Contraseña"}
                                 name={"password"}
                                 type={"password"}
-                                placeholder={"***********"} 
+                                placeholder={"***********"}
+                                maxLength={20} 
                                 functionHandler={InputHandler}
                                 onBlurFunction={inputCheck}
                             />

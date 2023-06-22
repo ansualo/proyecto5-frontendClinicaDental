@@ -2,7 +2,7 @@ import React from "react";
 import './InputForm.css';
 import Form from 'react-bootstrap/Form';
 
-export const InputForm = ({ design, label, name, type, placeholder, functionHandler, onBlurFunction }) => {
+export const InputForm = ({ design, label, name, type, placeholder, maxLength, functionHandler, onBlurFunction }) => {
 
     return (
         <Form>
@@ -13,6 +13,7 @@ export const InputForm = ({ design, label, name, type, placeholder, functionHand
             name={name}
             type={type} 
             placeholder={placeholder} 
+            maxLength={maxLength}
             onChange={(e)=>functionHandler(e)}
             onBlur={(e)=>onBlurFunction(e)}
           />
