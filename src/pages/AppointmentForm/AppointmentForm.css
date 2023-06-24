@@ -1,0 +1,6 @@
+.appointmentDesign{
+    min-height: 85vh;
+    width: 100vw;
+    display: flex;
+    background-color:gainsboro;
+}
