@@ -24,3 +24,8 @@ export const getAllDentists = async (allDentists) => {
 
     return await axios.get('http://localhost:3000/users/dentists', allDentists)
 }
+
+export const getAllTreatments = async (allTreatments) => {
+
+    return await axios.get('http://localhost:3000/treatments', allTreatments)
+}
