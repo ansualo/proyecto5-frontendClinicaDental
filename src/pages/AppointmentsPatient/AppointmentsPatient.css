@@ -1,0 +1,61 @@
+.appointmentsDesign{
+    min-height: 85vh;
+    width: 100vw;
+    display: flex;
+    background-color:gainsboro;
+}
+
+.appointmentsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.appointmentGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.eachAppointment{
+    background-color: white;
+    border-radius: 1em;
+    padding: 0.5em;
+    padding-top: 1em ;
+    margin: 1em;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.appointmentRow{
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .appointmentRow{
+        width: 39em;
+    }
+}
+
+.appointmentLabel{
+    background-color: rgb(48, 131, 55);
+    color: white;
+    margin-bottom: 0.5em;
+    text-align: start;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.1em;
+    border-radius: 0.5em;
+}
+
+.appointmentInfo{
+    background-color: rgb(235, 235, 235);
+    margin-bottom: 1em;
+    text-align: start;
+    padding: 0.1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+}

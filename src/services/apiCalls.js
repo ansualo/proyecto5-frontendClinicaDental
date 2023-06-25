@@ -34,3 +34,13 @@ export const createAppointment = async (newAppointment) => {
 
     return await axios.post('http://localhost:3000/appointments', newAppointment)
 }
+
+export const getPatientAppointments = async (appointments) => {
+
+    return await axios.get('http://localhost:3000/appointments/patient', appointments)
+}
+
+export const deleteAppointment = async (appointmentId) => {
+
+    return await axios.delete(`http://localhost:3000/appointments/${appointmentId}`, appointmentId)
+}
