@@ -29,3 +29,8 @@ export const getAllTreatments = async (allTreatments) => {
 
     return await axios.get('http://localhost:3000/treatments', allTreatments)
 }
+
+export const createAppointment = async (newAppointment) => {
+
+    return await axios.post('http://localhost:3000/appointments', newAppointment)
+}
