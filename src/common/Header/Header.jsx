@@ -5,8 +5,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavigateButton } from '../NavigateButton/NavigateButton';
+import { useDispatch, useSelector } from "react-redux";
+import { logout, userData } from "../../pages/userSlice";
+import { FunctionButton } from "../FunctionButton/FunctionButton";
 
 export const Header = () => {
+
+  const dispatch = useDispatch()
+  const datos = useSelector(userData)
+
   return (
     <Navbar collapseOnSelect expand="lg" className="headerDesign">
       <Container>
@@ -26,7 +33,15 @@ export const Header = () => {
             <Nav.Link href="/nosotros" className="me-4">Nosotros</Nav.Link>
             <Nav.Link href="/" className="me-4">Tratamientos</Nav.Link>
             <Nav.Link href="/" className="me-4">Consulta</Nav.Link>
-            <NavigateButton name="Inicia sesión" path="/login" />
+            {datos?.credentials?.token 
+              ? (
+              <>
+                <Nav.Link href="/usuario" className="me-4">Mi perfil</Nav.Link>
+                <FunctionButton name="Logout" action={()=> {dispatch(logout())}} />
+              </>
+              )
+              : (<NavigateButton name="Inicia sesión" path="/login" />)
+            }
             <Nav.Link href="/register" className="me-4">Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>

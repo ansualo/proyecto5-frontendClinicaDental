@@ -2,6 +2,7 @@
     border: 0.1em solid black;
     padding: 2em;
     text-align: start;
+    width: fit-content;
 }
 
 .inputDesign{
