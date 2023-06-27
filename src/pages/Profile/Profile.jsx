@@ -4,7 +4,8 @@ import { Col, Row, Container } from "react-bootstrap";
 import { getProfile } from "../../services/apiCalls";
 import { NavigateButton } from "../../common/NavigateButton/NavigateButton";
 import { AppointmentsPatient } from "../AppointmentsPatient/AppointmentsPatient";
-import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
+import { userData } from "../userSlice";
+import { useSelector } from "react-redux";
 
 export const Profile = () => {
 
@@ -18,18 +19,13 @@ export const Profile = () => {
         password: ""
     })
 
+    const datos = useSelector(userData);
+
+    const token = datos?.credentials?.token?.data?.token;
+
     useEffect(()=>{
-        if (profileInfo !== ""){
-
-            getProfile(profileInfo)
-            .then((resultado) => {
-                setProfileInfo(resultado.data.data);
-                // console.log(resultado.data.data)
-            })
-
-            .catch((error) => console.log(error))
-        }
-
+        getProfile(token)
+            .then((res)=> {setProfileInfo(res.data)})
     }, [])
 
     return (

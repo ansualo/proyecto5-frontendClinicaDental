@@ -3,32 +3,30 @@ import './AppointmentsPatient.css'
 import { deleteAppointment, getPatientAppointments } from "../../services/apiCalls";
 import { Col, Row, Container } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 
 export const AppointmentsPatient = () => {
 
     const [appointments, setAppointments] = useState([]);
 
+    const datos = useSelector(userData);
+    const token = datos?.credentials?.token?.data?.token;
+
     const fetchAppointments = () => {
-        getPatientAppointments(appointments)
-        .then ((resultado) => {
-            setAppointments(resultado.data.data)
-            console.log(resultado.data.data)
-        })
-        .catch ((error) => console.log(error))
+        getPatientAppointments(token)
+            .then((res)=> setAppointments(res.data))
     }
 
     const handleDelete = async (appointmentId) => {
-
-        await deleteAppointment(appointmentId)
+        await deleteAppointment(token, appointmentId)
         fetchAppointments()
     }
 
     useEffect(() => {
-
         if(appointments.length === 0) {
             fetchAppointments()
         }
-
     }, [])
 
 

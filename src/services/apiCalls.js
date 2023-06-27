@@ -10,9 +10,16 @@ export const registerMe = async (inputInfo) => {
     return await axios.post('http://localhost:3000/auth/register', inputInfo)
 }
 
-export const getProfile = async (profileInfo) => {
+export const getProfile = async (token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
 
-    return await axios.get('http://localhost:3000/users/profile', profileInfo)
+    let res = await axios.get('http://localhost:3000/users/profile', config)
+
+    return res.data;
 }
 
 export const updateProfile = async (profileInfo) => {
@@ -40,12 +47,23 @@ export const createAppointment = async (newAppointment) => {
     return await axios.post('http://localhost:3000/appointments', newAppointment)
 }
 
-export const getPatientAppointments = async (appointments) => {
+export const getPatientAppointments = async (token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
 
-    return await axios.get('http://localhost:3000/appointments/patient', appointments)
+   let res = await axios.get('http://localhost:3000/appointments/patient', config)
+   return res.data
 }
 
-export const deleteAppointment = async (appointmentId) => {
+export const deleteAppointment = async (token, appointmentId) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
 
-    return await axios.delete(`http://localhost:3000/appointments/${appointmentId}`, appointmentId)
+    return await axios.delete(`http://localhost:3000/appointments/${appointmentId}`, config)
 }

@@ -58,12 +58,13 @@ export const Login = () => {
                 )
                 
                 setTimeout(() => {
-                    navigate('/');
-                }, 3500)
+                    navigate('/usuario');
+                }, 1000)
 
                 setWelcome(`Nos alegra verte de nuevo`)
             })
     }
+
 
     return (
         <div className="loginDesign">
