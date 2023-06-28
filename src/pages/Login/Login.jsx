@@ -27,23 +27,6 @@ export const Login = () => {
 
     const [welcome, setWelcome] = useState("");
 
-    const InputHandler = (e) => {
-        setInputInfo((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    const inputCheck = (e) => {
-
-        let messageError = checkError(e.target.name, e.target.value);
-
-        setInputError((prevState) => ({
-            ...prevState,
-            [e.target.name + 'Error']: messageError
-        }))
-    }
-
     const submitHandler = (e, inputInfo) => {
         e.preventDefault()
         loginUser(inputInfo)
@@ -65,7 +48,6 @@ export const Login = () => {
             })
     }
 
-
     return (
         <div className="loginDesign">
             <Container className="d-flex justify-content-center">
@@ -82,8 +64,8 @@ export const Login = () => {
                                         type={"email"}
                                         placeholder={"ejemplo@ejemplo.com"}
                                         maxLength={20}
-                                        functionHandler={InputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state= {setInputInfo}
+                                        errorState={setInputError}
                                     />
                                     <div className="errorInput">{inputError.emailError}</div>
                                 </Col>
@@ -95,8 +77,8 @@ export const Login = () => {
                                         type={"password"}
                                         placeholder={"***********"}
                                         maxLength={20}
-                                        functionHandler={InputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state= {setInputInfo}
+                                        errorState={setInputError}
                                     />
                                     <div className="errorInput">{inputError.passwordError}</div>
                                 </Col>

@@ -33,24 +33,6 @@ export const Register = () => {
 
     const [registered, setRegistered] = useState("");
 
-    const InputHandler = (e) => {
-        setInputInfo((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    const InputCheck = (e) => {
-
-        let messageError = checkError(e.target.name, e.target.value);
-
-        setInputError((prevState) => ({
-            ...prevState,
-            [e.target.name + 'Error']: messageError
-        }))
-
-    }
-
     const register = () => {
 
         const { name, surname, date_of_birth, phone, address, email, password } = inputInfo;
@@ -90,9 +72,9 @@ export const Register = () => {
                                 label={"Nombre"}
                                 name={"name"}
                                 type={"text"}
+                                placeholder={"Introduce tu nombre"}
                                 maxLength={40}
-                                functionHandler={InputHandler}
-                                onBlurFunction={InputCheck}
+                                state= {setInputInfo}
                             />
                         </Col>
                         <Col sm={10} md={6}>
@@ -101,9 +83,9 @@ export const Register = () => {
                                 label={"Apellidos"}
                                 name={"surname"}
                                 type={"text"}
+                                placeholder={"Introduce tu apellido"}
                                 maxLength={40}
-                                functionHandler={InputHandler}
-                                onBlurFunction={InputCheck}
+                                state= {setInputInfo}
                             />
                         </Col>
                     </Row>
@@ -116,8 +98,8 @@ export const Register = () => {
                                 type={"text"}
                                 placeholder={"0000-00-00"}
                                 maxLength={10}
-                                functionHandler={InputHandler}
-                                onBlurFunction={InputCheck}
+                                state= {setInputInfo}
+                                errorState={setInputError}
                             />
                             <div className="errorInput">{inputError.date_of_birthError}</div>
                         </Col>
@@ -129,8 +111,7 @@ export const Register = () => {
                                 type={"text"}
                                 placeholder={"+34"}
                                 maxLength={15}
-                                functionHandler={InputHandler}
-                                onBlurFunction={() => { }}
+                                state= {setInputInfo}
                             />
                         </Col>
                     </Row>
@@ -141,9 +122,9 @@ export const Register = () => {
                                 label={"Dirección"}
                                 name={"address"}
                                 type={"text"}
+                                placeholder={"Introduce tu dirección completa"}
                                 maxLength={100}
-                                functionHandler={InputHandler}
-                                onBlurFunction={() => { }}
+                                state= {setInputInfo}
                             />
                         </Col>
                         <Col sm={10} md={6}>
@@ -154,8 +135,8 @@ export const Register = () => {
                                 type={"email"}
                                 placeholder={"ejemplo@ejemplo.com"}
                                 maxLength={40}
-                                functionHandler={InputHandler}
-                                onBlurFunction={InputCheck}
+                                state= {setInputInfo}
+                                errorState={setInputError}
                             />
                             <div className="errorInput">{inputError.emailError}</div>
                         </Col>
@@ -167,8 +148,8 @@ export const Register = () => {
                                 type={"password"}
                                 placeholder={"***********"}
                                 maxLength={14}
-                                functionHandler={InputHandler}
-                                onBlurFunction={InputCheck}
+                                state= {setInputInfo}
+                                errorState={setInputError}
                             />
                             <div className="errorInput">{inputError.passwordError}</div>
                         </Col>

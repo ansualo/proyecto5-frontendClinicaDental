@@ -12,6 +12,7 @@ import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
 export const Profile = () => {
 
     const [profileInfo, setProfileInfo] = useState({})
+    const [inputError, setInputError] = useState({})
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
     const datos = useSelector(userData);
@@ -20,14 +21,6 @@ export const Profile = () => {
     const editHandler = (body, token) => {
         updateProfile(body, token)
             .then(setEditing(false));
-    }
-
-
-    const InputHandler = (e) => {
-        setBody((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
     }
 
     useEffect(()=>{
@@ -48,8 +41,6 @@ export const Profile = () => {
                     <Col sm={10} md={3}>
                         <NavigateButton name="PEDIR CITA" path={'/pedircita'}></NavigateButton>
                     </Col>
-
-
                     {editing
                         ?(
                             <Col sm={10} md={3}>
@@ -75,7 +66,6 @@ export const Profile = () => {
                         <div className="profileLabel">Fecha de nacimiento</div>
                         <div className="profileInfo">{profileInfo.date_of_birth}</div>
                     </Col>
-
                     {editing
                         ? (
                             <>
@@ -87,8 +77,7 @@ export const Profile = () => {
                                     type={"text"} 
                                     placeholder={profileInfo.phone} 
                                     maxLength={15}
-                                    functionHandler={InputHandler}
-                                    onBlurFunction={()=>{ }}
+                                    state= {setBody}
                                 />
                             </Col>
                             <Col sm={10} md={6}>
@@ -99,21 +88,21 @@ export const Profile = () => {
                                     type={"text"} 
                                     placeholder={profileInfo.address} 
                                     maxLength={100}
-                                    functionHandler={InputHandler}
-                                    onBlurFunction={()=>{ }}
+                                    state= {setBody}
                                 />
                             </Col>
                             <Col sm={10} md={6}>
                                 <div className="profileLabel">Email</div>
                                 <InputForm             
                                     design= {"profileInfo inputMargin"} 
-                                    name={"address"}
+                                    name={"email"}
                                     type={"email"} 
                                     placeholder={profileInfo.email} 
                                     maxLength={40}
-                                    functionHandler={InputHandler}
-                                    onBlurFunction={()=>{ }}
+                                    state= {setBody}
+                                    errorState={setInputError}
                                 />
+                                <div className="errorInput mb-5">{inputError.emailError}</div>
                             </Col>
                             </>
                         )
@@ -134,7 +123,6 @@ export const Profile = () => {
                             </>
                         )
                     }
-
                 </Row>
             </Container>
         </div>
