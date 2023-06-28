@@ -38,8 +38,6 @@ export const Register = () => {
             ...prevState,
             [e.target.name]: e.target.value
         }))
-
-        console.log(inputInfo.phone)
     }
 
     const InputCheck = (e) => {
@@ -86,6 +84,7 @@ export const Register = () => {
                 : (<div className="formDesign">
                     <Row>
                         <Col sm={10} md={6}>
+                            
                             <InputForm
                                 design={"inputDesign"}
                                 label={"Nombre"}

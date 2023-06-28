@@ -22,9 +22,15 @@ export const getProfile = async (token) => {
     return res.data;
 }
 
-export const updateProfile = async (profileInfo) => {
+export const updateProfile = async (body, token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
 
-    return await axios.put('http://localhost:3000/users/profile', profileInfo)
+    let res = await axios.put('http://localhost:3000/users/profile', body, config)
+    return res.data
 }
 
 export const getAllProfiles = async (profilesInfo) => {
