@@ -6,6 +6,8 @@ import { createAppointment, getAllDentists, getAllTreatments } from "../../servi
 import { Form } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 
 
 export const AppointmentForm = () => {
@@ -18,6 +20,8 @@ export const AppointmentForm = () => {
     const [selectedTime, setSelectedTime] = useState('');
     const navigate = useNavigate();
     const [confirmed, setConfirmed] = useState("")
+    const datos = useSelector(userData);
+    const token = datos?.credentials?.token?.data?.token;
 
     useEffect(() => {
         if (allDentists.length === 0) {
@@ -50,7 +54,7 @@ export const AppointmentForm = () => {
             "date": `${selectedDate} ${selectedTime}:00`
         }
 
-        await createAppointment(newAppointment)
+        await createAppointment(token, newAppointment)
 
         setTimeout(() => {
             navigate('/');

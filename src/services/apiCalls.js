@@ -48,9 +48,14 @@ export const getAllTreatments = async (allTreatments) => {
     return await axios.get('http://localhost:3000/treatments', allTreatments)
 }
 
-export const createAppointment = async (newAppointment) => {
-
-    return await axios.post('http://localhost:3000/appointments', newAppointment)
+export const createAppointment = async (token, newAppointment) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    let res = await axios.post('http://localhost:3000/appointments', newAppointment, config)
+    return res
 }
 
 export const getPatientAppointments = async (token) => {
