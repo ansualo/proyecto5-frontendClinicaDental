@@ -4,6 +4,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 import thunk from "redux-thunk";
 import persistStore from "redux-persist/es/persistStore";
 import userSlice from "../userSlice";
+import appointmentSlice from "../appointmentSlice";
 
 
 const persistConfig = {
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userSlice,
+    appointment: appointmentSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

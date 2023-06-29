@@ -3,13 +3,16 @@ import './AppointmentsPatient.css'
 import { deleteAppointment, getPatientAppointments } from "../../services/apiCalls";
 import { Col, Row, Container } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { useNavigate } from "react-router-dom";
+import { saveId } from "../appointmentSlice";
 
 export const AppointmentsPatient = () => {
 
     const [appointments, setAppointments] = useState([]);
-
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
 
@@ -29,6 +32,10 @@ export const AppointmentsPatient = () => {
         }
     }, [])
 
+    const detailHandler = (appointmentId) => {
+        dispatch(saveId({ id: appointmentId }))
+        navigate('/usuario/citas/detalle')
+    }
 
     return(
         <div className="appointmentsDesign">
@@ -38,7 +45,7 @@ export const AppointmentsPatient = () => {
                         appointments.map((appointment) => {
                             return (
                                 <div key={appointment.id} className="appointmentGroup">
-                                    <div className="eachAppointment">
+                                    <div className="eachAppointment" onClick={() => {detailHandler(appointment.id)}}> 
                                             <Row className="appointmentRow">
                                                 <Col sm={10} md={4}>
                                                     <div className="appointmentLabel">Fecha</div>
