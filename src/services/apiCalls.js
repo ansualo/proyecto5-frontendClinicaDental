@@ -1,13 +1,15 @@
 import axios from "axios";
 
+const URL = "http://localhost:3000"
+
 export const loginUser = async (inputInfo) => {
 
-    return await axios.post('http://localhost:3000/auth/login', inputInfo)
+    return await axios.post(`${URL}/auth/login`, inputInfo)
 }
 
 export const registerMe = async (inputInfo) => {
 
-    return await axios.post('http://localhost:3000/auth/register', inputInfo)
+    return await axios.post(`${URL}/auth/register`, inputInfo)
 }
 
 export const getProfile = async (token) => {
@@ -17,7 +19,7 @@ export const getProfile = async (token) => {
         },
     }
 
-    let res = await axios.get('http://localhost:3000/users/profile', config)
+    let res = await axios.get(`${URL}/users/profile`, config)
 
     return res.data;
 }
@@ -29,23 +31,23 @@ export const updateProfile = async (body, token) => {
         },
     }
 
-    let res = await axios.put('http://localhost:3000/users/profile', body, config)
+    let res = await axios.put(`${URL}/users/profile`, body, config)
     return res.data
 }
 
 export const getAllProfiles = async (profilesInfo) => {
 
-    return await axios.get('http://localhost:3000/users/patients', profilesInfo)
+    return await axios.get(`${URL}/users/patients`, profilesInfo)
 }
 
 export const getAllDentists = async (allDentists) => {
 
-    return await axios.get('http://localhost:3000/users/dentists', allDentists)
+    return await axios.get(`${URL}/users/dentists`, allDentists)
 }
 
 export const getAllTreatments = async (allTreatments) => {
 
-    return await axios.get('http://localhost:3000/treatments', allTreatments)
+    return await axios.get(`${URL}/treatments`, allTreatments)
 }
 
 export const createAppointment = async (token, newAppointment) => {
@@ -54,7 +56,7 @@ export const createAppointment = async (token, newAppointment) => {
             Authorization: `Bearer ${token}`,
         },
     }
-    let res = await axios.post('http://localhost:3000/appointments', newAppointment, config)
+    let res = await axios.post(`${URL}/appointments`, newAppointment, config)
     return res
 }
 
@@ -65,7 +67,7 @@ export const getPatientAppointments = async (token) => {
         },
     }
 
-   let res = await axios.get('http://localhost:3000/appointments/patient', config)
+   let res = await axios.get(`${URL}/appointments/patient`, config)
    return res.data
 }
 
@@ -76,5 +78,5 @@ export const deleteAppointment = async (token, appointmentId) => {
         },
     }
 
-    return await axios.delete(`http://localhost:3000/appointments/${appointmentId}`, config)
+    return await axios.delete(`${URL}/appointments/${appointmentId}`, config)
 }
