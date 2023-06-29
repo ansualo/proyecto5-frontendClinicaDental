@@ -19,3 +19,12 @@
     font-weight: bold;
     background-color: white;
 }
+
+.dateDesign{
+    margin: 1em;
+    width: 8em;
+    height: 2.3em;
+    border: white;
+    color: black;
+    border-radius: 0.5em;
+}
