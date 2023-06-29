@@ -4,7 +4,8 @@ import { getOneAppointment } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { appointmentData } from "../appointmentSlice";
 import { userData } from "../userSlice";
-import { CustomCard } from "../../common/CustomCard/CustomCard";
+import { Col, Row, Container } from "react-bootstrap";
+import { NavigateButton } from "../../common/NavigateButton/NavigateButton";
 
 export const AppointmentDetail = () => {
 
@@ -24,14 +25,51 @@ export const AppointmentDetail = () => {
     }, []);
 
     return (
-        <div className="detailDesign">
-            <CustomCard
-                title={detailAppointment?.Treatment?.name}
-                list1={new Date(detailAppointment?.date).toLocaleDateString()}
-                list2={new Date(detailAppointment?.date).toLocaleTimeString()}
-                list3={`Precio: ${detailAppointment?.price}€`}
-                list4={`Doctor ${detailAppointment?.doctor?.name} ${detailAppointment?.doctor?.surname}`}
-            ></CustomCard>
-        </div>
+
+    <div className="appointmentsDesign">
+        <Container className = "appointmentsContainer">
+            <Row className="appointmentRow">
+                <Col sm={10} md={4}>
+                    <div className="appointmentLabel">Tratamiento</div>
+                </Col>
+                <Col sm={10} md={8}>
+                    <div className="appointmentInfo">{detailAppointment?.Treatment?.name}</div>
+                </Col>
+            </Row>
+            <Row className="appointmentRow">
+                <Col sm={10} md={4}>
+                    <div className="appointmentLabel">Fecha</div>
+                </Col>
+                <Col sm={10} md={8}>
+                    <div className="appointmentInfo">{new Date(detailAppointment?.date).toLocaleDateString()}</div>
+                </Col>
+            </Row>
+            <Row className="appointmentRow">
+                <Col sm={10} md={4}>
+                    <div className="appointmentLabel">Hora</div>
+                </Col>
+                <Col sm={10} md={8}>
+                    <div className="appointmentInfo">{new Date(detailAppointment?.date).toLocaleTimeString()}</div>
+                </Col>
+            </Row>
+            <Row className="appointmentRow">
+                <Col sm={10} md={4}>
+                    <div className="appointmentLabel">Doctor</div>
+                </Col>
+                <Col sm={10} md={8}>
+                    <div className="appointmentInfo">{`${detailAppointment?.doctor?.name} ${detailAppointment?.doctor?.surname}`}</div>
+                </Col>
+            </Row>
+            <Row className="appointmentRow">
+                <Col sm={10} md={4}>
+                    <div className="appointmentLabel">Precio</div>
+                </Col>
+                <Col sm={10} md={8}>
+                    <div className="appointmentInfo">{`${detailAppointment?.price}€`}</div>
+                </Col>
+            </Row>
+            <NavigateButton name={"Volver a todas mis citas"} path={'/usuario/citas'}></NavigateButton>
+        </Container>
+    </div>
     )
 }

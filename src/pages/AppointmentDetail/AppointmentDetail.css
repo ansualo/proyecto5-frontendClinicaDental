@@ -6,3 +6,42 @@
     justify-content: center;
     align-items: center;
 }
+
+.appointmentsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.appointmentRow{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+
+    .appointmentRow{
+        width: 90vw;
+    }
+}
+
+.appointmentLabel{
+    background-color: rgb(48, 131, 55);
+    color: white;
+    margin-bottom: 0.5em;
+    text-align: start;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.1em;
+    border-radius: 0.5em;
+}
+
+.appointmentInfo{
+    background-color: rgb(235, 235, 235);
+    margin-bottom: 1em;
+    text-align: start;
+    padding: 0.1em;
+    padding-left: 1em;
+    border-radius: 0.5em;
+}

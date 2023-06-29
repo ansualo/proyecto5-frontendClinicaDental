@@ -44,6 +44,8 @@ export const AppointmentsPatient = () => {
                     ? (
                         appointments.map((appointment) => {
                             return (
+
+                                
                                 <div key={appointment.id} className="appointmentGroup">
                                     <div className="eachAppointment" onClick={() => {detailHandler(appointment.id)}}> 
                                             <Row className="appointmentRow">
@@ -62,25 +64,12 @@ export const AppointmentsPatient = () => {
                                                     <div className="appointmentInfo">{appointment.Treatment.name}</div>
                                                 </Col>
                                             </Row>
-                                            <Row className="appointmentRow">
-                                                <Col sm={10} md={4}>
-                                                    <div className="appointmentLabel">Doctor</div>
-                                                </Col>
-                                                <Col sm={10} md={8}>
-                                                    <div className="appointmentInfo">{`${appointment.doctor.name} ${appointment.doctor.surname}`}</div>
-                                                </Col>
-                                            </Row>
-                                            <Row className="appointmentRow">
-                                                <Col sm={10} md={4}>
-                                                    <div className="appointmentLabel">Precio</div>
-                                                </Col>
-                                                <Col sm={10} md={8}>
-                                                    <div className="appointmentInfo">{appointment.price}</div>
-                                                </Col>
-                                            </Row>
+
                                     </div>
-                                    <FunctionButton name="Modificar"></FunctionButton>
-                                    <FunctionButton name="Cancelar" action={()=>{handleDelete(appointment.id)}}></FunctionButton>
+                                    <div className="appointmentButtons">
+                                        <FunctionButton name="Modificar"></FunctionButton>
+                                        <FunctionButton name="Cancelar" action={()=>{handleDelete(appointment.id)}}></FunctionButton>
+                                    </div>
                                 </div>
 
                             )
