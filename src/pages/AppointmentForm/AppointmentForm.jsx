@@ -10,6 +10,7 @@ import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { NavigateButton } from "../../common/NavigateButton/NavigateButton";
 
 
 export const AppointmentForm = () => {
@@ -74,77 +75,76 @@ export const AppointmentForm = () => {
             {confirmed !== ""
                 ? (<div className="confirmed">{confirmed}</div>)
                 : ( 
-                    <>
                     <Form>
-                        <SelectField
-                            fieldLabel="Doctor:"
-                            buttonName="Por favor elige un doctor"
-
-                            options={allDentists.map((dentist) => (
-                                {
-                                    value: dentist.id,
-                                    label: `Dr. ${dentist.name} ${dentist.surname}`
-                                }
-                            ))}
-
-                            onChange={(e) => { setSelectedDoctor(e.target.value) }}
-                        />
-
-                        <SelectField
-                            fieldLabel="Tratamiento:"
-                            buttonName="Por favor elige un tratamiento"
-
-                            options={allTreatments.map((treatment) => (
-                                {
-                                    value: treatment.id,
-                                    label: treatment.name
-                                }
-                            ))}
-
-                            onChange={(e) => { setSelectedTreatment(e.target.value) }} />
-
-
-                        <Form.Group>
-                            <Form.Label>Seleccione la fecha:</Form.Label>
+                        <div className="formFields">
+                            <SelectField
+                                fieldLabel="Doctor:"
+                                buttonName="Por favor elige un doctor"
+                    
+                                options={allDentists.map((dentist) => (
+                                    {
+                                        value: dentist.id,
+                                        label: `Dr. ${dentist.name} ${dentist.surname}`
+                                    }
+                                ))}
+                                
+                                onChange={(e) => { setSelectedDoctor(e.target.value) }}
+                            />
+    
+                            <SelectField
+                                fieldLabel="Tratamiento:"
+                                buttonName="Por favor elige un tratamiento"
+                                
+                                options={allTreatments.map((treatment) => (
+                                    {
+                                        value: treatment.id,
+                                        label: treatment.name
+                                    }
+                                ))}
+                                
+                                onChange={(e) => { setSelectedTreatment(e.target.value) }} />
+    
+                            <Form.Group>
+                                <Form.Label>Seleccione la fecha:</Form.Label>
                                 <DatePicker 
-                                className={"dateDesign"}
-                                selected={selectedDate}
-                                minDate={currentDate}
-                                onChange={(date) => setSelectedDate(date)} />
-                        </Form.Group>
-
-                        <Form.Group>
-                            <Form.Label>Selecione la hora</Form.Label>
-                            <input
-                                className={"dateDesign"}
-                                type="time"
-                                placeholder="Hora"
-                                list="timelist"
-                                value={selectedTime}
-                                onChange={(e) => setSelectedTime(e.target.value)} />
-                            <datalist id="timelist">
-                              <option value="09:00" />
-                              <option value="09:30" />
-                              <option value="10:00" />
-                              <option value="10:30" />
-                              <option value="11:00" />
-                              <option value="11:30" />
-                              <option value="12:00" />
-                              <option value="12:30" />
-                              <option value="13:00" />
-                              <option value="13:30" />
-                              <option value="16:00" />
-                              <option value="16:30" />
-                              <option value="17:00" />
-                              <option value="17:30" />
-                              <option value="18:00" />
-                              <option value="18:30" />
-                            </datalist>
-                        </Form.Group>
+                                    className={"dateDesign"}
+                                    selected={selectedDate}
+                                    minDate={currentDate}
+                                    onChange={(date) => setSelectedDate(date)} />
+                            </Form.Group>
+                                
+                            <Form.Group>
+                                <Form.Label>Seleccione la hora:</Form.Label>
+                                <input
+                                    className={"dateDesign ms-4"}
+                                    type="time"
+                                    placeholder="Hora"
+                                    list="timelist"
+                                    value={selectedTime}
+                                    onChange={(e) => setSelectedTime(e.target.value)} />
+                                <datalist id="timelist">
+                                  <option value="09:00" />
+                                  <option value="09:30" />
+                                  <option value="10:00" />
+                                  <option value="10:30" />
+                                  <option value="11:00" />
+                                  <option value="11:30" />
+                                  <option value="12:00" />
+                                  <option value="12:30" />
+                                  <option value="13:00" />
+                                  <option value="13:30" />
+                                  <option value="16:00" />
+                                  <option value="16:30" />
+                                  <option value="17:00" />
+                                  <option value="17:30" />
+                                  <option value="18:00" />
+                                  <option value="18:30" />
+                                </datalist>
+                            </Form.Group>
+                        </div>
+                        <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
+                        <NavigateButton name="Volver" path={'/usuario'}></NavigateButton>
                     </Form>
-
-                    <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
-                    </>
                 )
             }
 

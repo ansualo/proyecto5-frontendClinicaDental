@@ -12,6 +12,8 @@ export const registerMe = async (inputInfo) => {
     return await axios.post(`${URL}/auth/register`, inputInfo)
 }
 
+// PROFILE
+
 export const getProfile = async (token) => {
     let config = {
         headers: {
@@ -40,6 +42,8 @@ export const getAllProfiles = async (profilesInfo) => {
     return await axios.get(`${URL}/users/patients`, profilesInfo)
 }
 
+// CREATE APPOINTMENT
+
 export const getAllDentists = async (allDentists) => {
 
     return await axios.get(`${URL}/users/dentists`, allDentists)
@@ -50,15 +54,7 @@ export const getAllTreatments = async (allTreatments) => {
     return await axios.get(`${URL}/treatments`, allTreatments)
 }
 
-export const createAppointment = async (token, newAppointment) => {
-    let config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    }
-    let res = await axios.post(`${URL}/appointments`, newAppointment, config)
-    return res
-}
+// APPOINTMENTS
 
 export const getPatientAppointments = async (token) => {
     let config = {
@@ -80,6 +76,26 @@ export const getOneAppointment = async (token, appointmentId) => {
 
    let res = await axios.get(`${URL}/appointments/patient/${appointmentId}`, config)
    return res.data
+}
+
+export const createAppointment = async (token, newAppointment) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    let res = await axios.post(`${URL}/appointments`, newAppointment, config)
+    return res
+}
+
+export const updateAppointment = async (body, token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    let res = await axios.put(`${URL}/appointments/${appointmentId}`, body, config)
+    return res
 }
 
 export const deleteAppointment = async (token, appointmentId) => {
