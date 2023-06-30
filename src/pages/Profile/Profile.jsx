@@ -37,7 +37,7 @@ export const Profile = () => {
             <Container>
                 <Row className="buttons">
                     <Col sm={10} md={3}>
-                        <NavigateButton name="Ver todas mis citas" path={'/usuario/citas'}></NavigateButton>
+                        <NavigateButton name="Ver todas mis citas" path={'/citas'}></NavigateButton>
                     </Col>
                     {editing
                         ?(

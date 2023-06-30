@@ -50,44 +50,46 @@ export const Login = () => {
 
     return (
         <div className="loginDesign">
-            <Container className="d-flex justify-content-center">
+            <Container className="containerDesign">
                 {welcome !== ""
                     ? (<div>{welcome}</div>)
                     : (
-                        <div className="formDesign">
-                            <Row>
-                                <Col sm={10} md={6}>
-                                    <InputForm
-                                        design={inputError.emailError === "" ? "inputDesign" : "inputDesign errorInput"}
-                                        label={"Email"}
-                                        name={"email"}
-                                        type={"email"}
-                                        placeholder={"ejemplo@ejemplo.com"}
-                                        maxLength={20}
-                                        state={setInputInfo}
-                                        errorState={setInputError}
-                                    />
-                                    <div className="errorInput">{inputError.emailError}</div>
-                                </Col>
-                                <Col sm={10} md={6}>
-                                    <InputForm
-                                        design={inputError.passwordError === "" ? "inputDesign" : "inputDesign errorInput"}
-                                        label={"Contraseña"}
-                                        name={"password"}
-                                        type={"password"}
-                                        placeholder={"***********"}
-                                        maxLength={20}
-                                        state={setInputInfo}
-                                        errorState={setInputError}
-                                    />
-                                    <div className="errorInput">{inputError.passwordError}</div>
-                                </Col>
-                            </Row>
-                            <FunctionButton name="Enviar" action={(e) => submitHandler(e, inputInfo)} />
-                        </div>
+                        <>
+                            <div className="formDesign">
+                                <Row>
+                                    <Col sm={10} md={6}>
+                                        <InputForm
+                                            design={inputError.emailError === "" ? "inputDesign" : "inputDesign errorInput"}
+                                            label={"Email"}
+                                            name={"email"}
+                                            type={"email"}
+                                            placeholder={"ejemplo@ejemplo.com"}
+                                            maxLength={20}
+                                            state={setInputInfo}
+                                            errorState={setInputError}
+                                        />
+                                        <div className="errorInput">{inputError.emailError}</div>
+                                    </Col>
+                                    <Col sm={10} md={6}>
+                                        <InputForm
+                                            design={inputError.passwordError === "" ? "inputDesign" : "inputDesign errorInput"}
+                                            label={"Contraseña"}
+                                            name={"password"}
+                                            type={"password"}
+                                            placeholder={"***********"}
+                                            maxLength={20}
+                                            state={setInputInfo}
+                                            errorState={setInputError}
+                                        />
+                                        <div className="errorInput">{inputError.passwordError}</div>
+                                    </Col>
+                                </Row>
+                                <FunctionButton name="Enviar" action={(e) => submitHandler(e, inputInfo)} />
+                            </div>
+                            <div className="registerOption" onClick={() => navigate('/register')} >Si eres un nuevo paciente registrate aquí</div>
+                        </>
                     )}
             </Container>
-            <div className="registerOption" onClick={()=>navigate('/register')} >Si eres un nuevo paciente registrate aquí</div>
         </div>
     );
 };

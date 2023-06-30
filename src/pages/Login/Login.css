@@ -1,8 +1,14 @@
 .loginDesign{
-    height: 90vh;
+    min-height: 90vh;
     width: 100vw;
     background-color:gainsboro;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerDesign{
     display: flex;
     flex-direction: column;
     align-items: center;

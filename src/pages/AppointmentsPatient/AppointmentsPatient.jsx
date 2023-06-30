@@ -34,7 +34,7 @@ export const AppointmentsPatient = () => {
 
     const detailHandler = (appointmentId) => {
         dispatch(saveId({ id: appointmentId }))
-        navigate('/usuario/citas/detalle')
+        navigate('/citas/detalle')
     }
 
     return(

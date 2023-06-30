@@ -32,7 +32,6 @@ export const AppointmentForm = () => {
             getAllDentists(allDentists)
                 .then((resultado) => {
                     setAllDentists(resultado.data.data)
-                    // console.log(resultado.data.data)
                 })
                 .catch((error) => console.log(error))
         }
@@ -43,7 +42,6 @@ export const AppointmentForm = () => {
             getAllTreatments(allTreatments)
                 .then((resultado) => {
                     setAllTreatments(resultado.data.data)
-                    // console.log(resultado.data.data)
                 })
                 .catch((error) => console.log(error))
         }
@@ -55,7 +53,6 @@ export const AppointmentForm = () => {
         const newAppointment = {
             "user_id_2": Number(selectedDoctor),
             "treatment_id": Number(selectedTreatment),
-            // "date": `${selectedDate} ${selectedTime}:00`
             "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
         }
 
@@ -64,8 +61,8 @@ export const AppointmentForm = () => {
         await createAppointment(token, newAppointment)
 
         setTimeout(() => {
-            navigate('/');
-        }, 3500)
+            navigate('/citas');
+        }, 1500)
 
         setConfirmed("Su cita ha sido confirmada");
     }

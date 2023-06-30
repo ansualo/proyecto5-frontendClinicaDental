@@ -68,7 +68,7 @@ export const AppointmentDetail = () => {
                     <div className="appointmentInfo">{`${detailAppointment?.price}€`}</div>
                 </Col>
             </Row>
-            <NavigateButton name={"Volver a todas mis citas"} path={'/usuario/citas'}></NavigateButton>
+            <NavigateButton name={"Volver a todas mis citas"} path={'/citas'}></NavigateButton>
         </Container>
     </div>
     )
