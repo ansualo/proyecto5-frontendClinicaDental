@@ -56,6 +56,17 @@ export const getAllTreatments = async (allTreatments) => {
 
 // APPOINTMENTS
 
+export const getAllAppointments = async (token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+
+   let res = await axios.get(`${URL}/appointments/all`, config)
+   return res.data
+}
+
 export const getPatientAppointments = async (token) => {
     let config = {
         headers: {
