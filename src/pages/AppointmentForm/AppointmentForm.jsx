@@ -4,16 +4,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { SelectField } from "../../common/SelectField/SelectField.jsx";
-import { createAppointment, getAllDentists, getAllTreatments } from "../../services/apiCalls";
+import { createAppointment, getAllDentists, getAllTreatments, updateAppointment } from "../../services/apiCalls";
 import { Form } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { NavigateButton } from "../../common/NavigateButton/NavigateButton";
+import { appointmentData, editingAppointment } from "../appointmentSlice";
 
 
 export const AppointmentForm = () => {
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const [allDentists, setAllDentists] = useState([]);
     const [allTreatments, setAllTreatments] = useState([]);
@@ -22,10 +26,13 @@ export const AppointmentForm = () => {
     const currentDate = new Date();
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState('');
-    const navigate = useNavigate();
     const [confirmed, setConfirmed] = useState("")
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
+    const isEditing = useSelector((state) => state.appointment.editing)
+
+    let appointment = useSelector(appointmentData);
+    let appointmentId = appointment.id;
 
     useEffect(() => {
         if (allDentists.length === 0) {
@@ -55,9 +62,7 @@ export const AppointmentForm = () => {
             "treatment_id": Number(selectedTreatment),
             "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
         }
-
-        console.log(newAppointment)
-
+        
         await createAppointment(token, newAppointment)
 
         setTimeout(() => {
@@ -67,6 +72,27 @@ export const AppointmentForm = () => {
         setConfirmed("Su cita ha sido confirmada");
     }
 
+    const handleEdit = async () => {
+
+        const updatedAppointmentId = appointmentId;
+
+        const editedAppointment = {
+            "user_id_2": Number(selectedDoctor),
+            "treatment_id": Number(selectedTreatment),
+            "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
+        }
+        await updateAppointment(token, appointmentId, editedAppointment,)
+        dispatch(editingAppointment(false))
+
+        setTimeout(() => {
+            navigate('/citas');
+        }, 1500)
+
+        setConfirmed("Su cita ha sido confirmada");
+    }
+
+    console.log()
+    
     return (
         <div className="appointmentDesign">
             {confirmed !== ""
@@ -134,7 +160,15 @@ export const AppointmentForm = () => {
                                 </datalist>
                             </Form.Group>
                         </div>
-                        <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
+                        {isEditing === true
+                        ?(
+                            <FunctionButton name="Modificar" action={handleEdit}></FunctionButton>
+                        )
+                        :(  
+                            <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
+                        )
+                        }
+        
                         <NavigateButton name="Volver" path={'/usuario'}></NavigateButton>
                     </Form>
                 )

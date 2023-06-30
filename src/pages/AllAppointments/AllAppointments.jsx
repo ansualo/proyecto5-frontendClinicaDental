@@ -3,16 +3,13 @@ import './AllAppointments.css'
 import { deleteAppointment, getAllAppointments } from "../../services/apiCalls";
 import { Col, Row, Container } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { useNavigate } from "react-router-dom";
-import { saveId } from "../appointmentSlice";
+
 
 export const AllAppointments = () => {
 
     const [allAppointments, setAllAppointments] = useState([]);
-    const navigate = useNavigate()
-    const dispatch = useDispatch();
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
 
@@ -20,7 +17,6 @@ export const AllAppointments = () => {
         getAllAppointments(token)
             .then((res)=> {
                 setAllAppointments(res.data)
-                console.log(res)
             })
     }
 
@@ -43,7 +39,7 @@ export const AllAppointments = () => {
                         allAppointments.map((appointment) => {
                             return (
                                 <div key={appointment.id}>
-                                    <div className="eachAppointment"> 
+                                    <div className="eachAllAppointment"> 
                                             <Row className="appointmentRow">
                                                 <Col sm={10} md={5}>
                                                     <div className="appointmentLabel">Id</div>
@@ -89,7 +85,7 @@ export const AllAppointments = () => {
                                                     <div className="appointmentLabel">Precio</div>
                                                 </Col>
                                                 <Col sm={10} md={7}>
-                                                    <div className="appointmentInfo">{appointment.price}</div>
+                                                    <div className="appointmentInfo">{`${appointment.price} €`}</div>
                                                 </Col>
                                             </Row>
                                             <Row className="buttonsRow">

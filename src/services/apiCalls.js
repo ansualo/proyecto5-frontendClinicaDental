@@ -99,13 +99,13 @@ export const createAppointment = async (token, newAppointment) => {
     return res
 }
 
-export const updateAppointment = async (body, token) => {
+export const updateAppointment = async (token, updatedAppointmentId, editedAppointment) => {
     let config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     }
-    let res = await axios.put(`${URL}/appointments/${appointmentId}`, body, config)
+    let res = await axios.put(`${URL}/appointments/${updatedAppointmentId}`, editedAppointment, config)
     return res
 }
 

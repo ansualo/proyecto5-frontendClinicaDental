@@ -6,7 +6,7 @@ import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { useNavigate } from "react-router-dom";
-import { saveId } from "../appointmentSlice";
+import { editingAppointment, saveId } from "../appointmentSlice";
 
 export const AppointmentsPatient = () => {
 
@@ -35,6 +35,12 @@ export const AppointmentsPatient = () => {
     const detailHandler = (appointmentId) => {
         dispatch(saveId({ id: appointmentId }))
         navigate('/citas/detalle')
+    }
+
+    const isEditing = (appointmentId) => {
+        dispatch(saveId({ id: appointmentId }))
+        dispatch(editingAppointment(true))
+        navigate('/modificarcita')
     }
 
     return(
@@ -67,7 +73,7 @@ export const AppointmentsPatient = () => {
 
                                     </div>
                                     <div className="appointmentButtons">
-                                        <FunctionButton name="Modificar"></FunctionButton>
+                                        <FunctionButton name="Modificar" action={() => {isEditing(appointment.id)}}></FunctionButton>
                                         <FunctionButton name="Cancelar" action={()=>{handleDelete(appointment.id)}}></FunctionButton>
                                     </div>
                                 </div>

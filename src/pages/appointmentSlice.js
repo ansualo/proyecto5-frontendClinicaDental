@@ -9,10 +9,13 @@ export const appointmentSlice = createSlice({
         saveId: (state, action) => {
             let { payload } = action;
             state.id = payload.id
-        }
+        },
+        editingAppointment: (state, action) => {
+            state.editing = action.payload;
+          },
     }
 });
 
 export const appointmentData = (state) => state.appointment;
-export const { saveId } = appointmentSlice.actions;
+export const { saveId, editingAppointment } = appointmentSlice.actions;
 export default appointmentSlice.reducer;
