@@ -39,7 +39,7 @@ export const Login = () => {
                         roleId: decoded.roleId
                     })
                 )
-                
+
                 setTimeout(() => {
                     navigate('/usuario');
                 }, 1000)
@@ -64,7 +64,7 @@ export const Login = () => {
                                         type={"email"}
                                         placeholder={"ejemplo@ejemplo.com"}
                                         maxLength={20}
-                                        state= {setInputInfo}
+                                        state={setInputInfo}
                                         errorState={setInputError}
                                     />
                                     <div className="errorInput">{inputError.emailError}</div>
@@ -77,7 +77,7 @@ export const Login = () => {
                                         type={"password"}
                                         placeholder={"***********"}
                                         maxLength={20}
-                                        state= {setInputInfo}
+                                        state={setInputInfo}
                                         errorState={setInputError}
                                     />
                                     <div className="errorInput">{inputError.passwordError}</div>
@@ -87,6 +87,7 @@ export const Login = () => {
                         </div>
                     )}
             </Container>
+            <div className="registerOption" onClick={()=>navigate('/register')} >Si eres un nuevo paciente registrate aquí</div>
         </div>
     );
 };

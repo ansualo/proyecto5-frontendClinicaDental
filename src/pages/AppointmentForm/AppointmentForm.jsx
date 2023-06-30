@@ -80,39 +80,34 @@ export const AppointmentForm = () => {
                             <SelectField
                                 fieldLabel="Doctor:"
                                 buttonName="Por favor elige un doctor"
-                    
                                 options={allDentists.map((dentist) => (
                                     {
                                         value: dentist.id,
                                         label: `Dr. ${dentist.name} ${dentist.surname}`
                                     }
                                 ))}
-                                
                                 onChange={(e) => { setSelectedDoctor(e.target.value) }}
                             />
-    
                             <SelectField
                                 fieldLabel="Tratamiento:"
                                 buttonName="Por favor elige un tratamiento"
-                                
                                 options={allTreatments.map((treatment) => (
                                     {
                                         value: treatment.id,
                                         label: treatment.name
                                     }
                                 ))}
-                                
-                                onChange={(e) => { setSelectedTreatment(e.target.value) }} />
-    
+                                onChange={(e) => { setSelectedTreatment(e.target.value) }} 
+                            />
                             <Form.Group>
                                 <Form.Label>Seleccione la fecha:</Form.Label>
                                 <DatePicker 
                                     className={"dateDesign"}
                                     selected={selectedDate}
                                     minDate={currentDate}
-                                    onChange={(date) => setSelectedDate(date)} />
+                                    onChange={(date) => setSelectedDate(date)} 
+                                />
                             </Form.Group>
-                                
                             <Form.Group>
                                 <Form.Label>Seleccione la hora:</Form.Label>
                                 <input

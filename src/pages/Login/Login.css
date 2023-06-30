@@ -8,3 +8,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.registerOption{
+    margin: 3em;
+    cursor: pointer;
+    text-align: center;
+}

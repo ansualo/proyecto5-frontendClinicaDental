@@ -27,6 +27,7 @@ export const Profile = () => {
         if(!editing){
             getProfile(token)
             .then((res)=> {setProfileInfo(res.data)})
+            // .catch(error => navigate('/')) para que nos lleve a home si no hay token??
         }
 
     }, [editing])
@@ -37,9 +38,6 @@ export const Profile = () => {
                 <Row className="buttons">
                     <Col sm={10} md={3}>
                         <NavigateButton name="Ver todas mis citas" path={'/usuario/citas'}></NavigateButton>
-                    </Col>
-                    <Col sm={10} md={3}>
-                        <NavigateButton name="PEDIR CITA" path={'/pedircita'}></NavigateButton>
                     </Col>
                     {editing
                         ?(

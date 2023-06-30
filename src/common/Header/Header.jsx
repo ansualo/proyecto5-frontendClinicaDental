@@ -13,6 +13,10 @@ export const Header = () => {
 
   const dispatch = useDispatch()
   const datos = useSelector(userData)
+  const token = datos?.credentials?.token?.data?.token;
+  const role = datos?.data?.roleId;
+
+  console.log(token)
 
   return (
     <Navbar collapseOnSelect expand="lg" className="headerDesign">
@@ -32,17 +36,38 @@ export const Header = () => {
             <Nav.Link href="/" className="me-4">Home</Nav.Link>
             <Nav.Link href="/nosotros" className="me-4">Nosotros</Nav.Link>
             <Nav.Link href="/" className="me-4">Tratamientos</Nav.Link>
-            <Nav.Link href="/" className="me-4">Consulta</Nav.Link>
-            {datos?.credentials?.token 
-              ? (
+
+            {role === 1 
+            ? ( 
+              // patient
+                <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
+              ) 
+            : role === 2 
+            ? (
+              // dentist
               <>
-                <Nav.Link href="/usuario" className="me-4">Mi perfil</Nav.Link>
-                <FunctionButton name="Logout" action={()=> {dispatch(logout())}} />
+                <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
+                <Nav.Link href="/usuario/citas" className="me-4">Mis citas </Nav.Link>
               </>
+              ) 
+            : (
+              // admin
+              <>
+                <Nav.Link href="/usuario/all" className="me-4">Usuarios</Nav.Link>
+                <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
+              </>
+              )
+            }
+
+            {token
+              ? (
+                <>
+                  <Nav.Link href="/usuario" className="me-4">Mi perfil</Nav.Link>
+                  <FunctionButton name="Logout" action={() => { dispatch(logout()) }} />
+                </>
               )
               : (<NavigateButton name="Inicia sesión" path="/login" />)
             }
-            <Nav.Link href="/register" className="me-4">Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
