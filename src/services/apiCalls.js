@@ -37,9 +37,14 @@ export const updateProfile = async (body, token) => {
     return res.data
 }
 
-export const getAllPatients = async (profilesInfo) => {
+export const getAllPatients = async (token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
 
-    return await axios.get(`${URL}/users/patients`, profilesInfo)
+    return await axios.get(`${URL}/users/patients`, config)
 }
 
 export const getAllDentists = async (dentistProfile) => {

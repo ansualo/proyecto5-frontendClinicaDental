@@ -12,6 +12,7 @@ import { AppointmentsPatient } from "../AppointmentsPatient/AppointmentsPatient"
 import { AppointmentDetail } from "../AppointmentDetail/AppointmentDetail";
 import { AllAppointments } from "../AllAppointments/AllAppointments";
 import { AppointmentsDentists } from "../AppointmentsDentist/AppointmentsDentist";
+import { AllTreatments } from "../AllTreatments/Alltreatments";
 
 export const Body = () => {
 
@@ -20,9 +21,10 @@ export const Body = () => {
             <Routes>
                 <Route path='*' element={<Navigate to='/' />} />
                 <Route path='/' element={<Home />} />
+                <Route path='/nosotros' element={<About />} />
+                <Route path='/tratamientos' element={<AllTreatments />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/nosotros' element={<About />} />
                 <Route path='/usuario' element={<Profile />} />
                 <Route path='/usuario/all' element={<AllPatients />} />
                 <Route path='/usuario/dentista' element={<AllDentists/>} />

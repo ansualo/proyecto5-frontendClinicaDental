@@ -37,7 +37,7 @@ export const Header = () => {
           <Nav className="ms-auto d-flex align-items-center">
             <Nav.Link href="/" className="me-4">Home</Nav.Link>
             <Nav.Link href="/nosotros" className="me-4">Nosotros</Nav.Link>
-            <Nav.Link href="/" className="me-4">Tratamientos</Nav.Link>
+            <Nav.Link href="/tratamientos" className="me-4">Tratamientos</Nav.Link>
 
             {token
               ? (

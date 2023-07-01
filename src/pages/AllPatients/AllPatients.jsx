@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import './AllPatients.css'
 import { Col, Row, Container } from "react-bootstrap";
 import { getAllPatients } from "../../services/apiCalls";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 
 
 export const AllPatients = () => {
 
+    const datos = useSelector(userData);
+    const token = datos?.credentials?.token?.data?.token;
     const [profilesInfo, setProfilesInfo] = useState([])
-
+    
     useEffect(() => {
         if (profilesInfo.length === 0) {
 
-            getAllPatients(profilesInfo)
+            getAllPatients(token)
                 .then((resultado) => {
                     setProfilesInfo(resultado.data.data);
                     // console.log(resultado.data.data)
@@ -29,7 +33,7 @@ export const AllPatients = () => {
                     ? (
                         profilesInfo.map((profile) => {
                             return (
-                                <div className="eachProfile">
+                                <div className="eachProfile" key={profile.id}>
                                     <Row className="profileRow">
                                         <Col sm={10} md={4}>
                                             <div className="AllPatientsLabel">Nombre</div>

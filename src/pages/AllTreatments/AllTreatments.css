@@ -1,0 +1,41 @@
+.allTreatmentsDesign{
+    min-height: 85vh;
+    width: 100vw;
+    background-color:gainsboro;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.treatmentCard{
+    margin: 1em;
+    width: 25vw;
+    height: 60vh;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.treatmentImage{
+    height: 35vh;
+}
+
+.treatmentTitle{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .treatmentCard{
+        width: 45vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .treatmentCard{
+        width: 90vw;
+        height: auto;
+    }
+}
