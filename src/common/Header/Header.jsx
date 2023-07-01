@@ -8,15 +8,17 @@ import { NavigateButton } from '../NavigateButton/NavigateButton';
 import { useDispatch, useSelector } from "react-redux";
 import { logout, userData } from "../../pages/userSlice";
 import { FunctionButton } from "../FunctionButton/FunctionButton";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const datos = useSelector(userData)
   const token = datos?.credentials?.token?.data?.token;
   const role = datos?.data?.roleId;
 
-  console.log(token)
+
 
   return (
     <Navbar collapseOnSelect expand="lg" className="headerDesign">
@@ -37,35 +39,35 @@ export const Header = () => {
             <Nav.Link href="/nosotros" className="me-4">Nosotros</Nav.Link>
             <Nav.Link href="/" className="me-4">Tratamientos</Nav.Link>
 
-            {role === 1 
-            ? ( 
-              // patient
-                <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
-              ) 
-            : role === 2 
-            ? (
-              // dentist
-              <>
-                <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
-                <Nav.Link href="/usuario/citas" className="me-4">Mis citas </Nav.Link>
-                <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
-              </>
-              ) 
-            : (
-              // admin
-              <>
-                <Nav.Link href="/usuario/all" className="me-4">Usuarios</Nav.Link>
-                <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
-                <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
-              </>
-              )
-            }
-
             {token
               ? (
                 <>
+                  {role === 1
+                    ? (
+                      // patient
+                      <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
+                    )
+                    : role === 2
+                      ? (
+                        // dentist
+                        <>
+                          <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
+                          <Nav.Link href="/usuario/citas" className="me-4">Mis citas </Nav.Link>
+                          <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
+                        </>
+                      )
+                      : (
+                        // admin
+                        <>
+                          <Nav.Link href="/usuario/all" className="me-4">Usuarios</Nav.Link>
+                          <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
+                          <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
+                        </>
+                      )
+                  }
+
                   <Nav.Link href="/usuario" className="me-4">Mi perfil</Nav.Link>
-                  <FunctionButton name="Logout" action={() => { dispatch(logout()) }} />
+                  <FunctionButton name="Logout" action={() => { dispatch(logout()); navigate('/') }} />
                 </>
               )
               : (<NavigateButton name="Inicia sesión" path="/login" />)

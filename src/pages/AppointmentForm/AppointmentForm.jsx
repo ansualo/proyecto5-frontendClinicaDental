@@ -57,41 +57,32 @@ export const AppointmentForm = () => {
 
     const handleSubmit = async () => {
 
-        const newAppointment = {
+        const updatedAppointmentId = appointmentId;
+    
+        const bodyAppointment = {
             "user_id_2": Number(selectedDoctor),
             "treatment_id": Number(selectedTreatment),
             "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
+        }
+    
+        {isEditing === true 
+            ?(
+                await updateAppointment(token, appointmentId, bodyAppointment),
+                dispatch(editingAppointment(false))
+            )
+            :(
+                await createAppointment(token, bodyAppointment)
+            )
         }
         
-        await createAppointment(token, newAppointment)
-
         setTimeout(() => {
             navigate('/citas');
         }, 1500)
-
+    
         setConfirmed("Su cita ha sido confirmada");
+    
     }
 
-    const handleEdit = async () => {
-
-        const updatedAppointmentId = appointmentId;
-
-        const editedAppointment = {
-            "user_id_2": Number(selectedDoctor),
-            "treatment_id": Number(selectedTreatment),
-            "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
-        }
-        await updateAppointment(token, appointmentId, editedAppointment,)
-        dispatch(editingAppointment(false))
-
-        setTimeout(() => {
-            navigate('/citas');
-        }, 1500)
-
-        setConfirmed("Su cita ha sido confirmada");
-    }
-
-    console.log()
     
     return (
         <div className="appointmentDesign">
@@ -160,15 +151,7 @@ export const AppointmentForm = () => {
                                 </datalist>
                             </Form.Group>
                         </div>
-                        {isEditing === true
-                        ?(
-                            <FunctionButton name="Modificar" action={handleEdit}></FunctionButton>
-                        )
-                        :(  
-                            <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
-                        )
-                        }
-        
+                        <FunctionButton name="Confirmar" action={handleSubmit}></FunctionButton>
                         <NavigateButton name="Volver" path={'/usuario'}></NavigateButton>
                     </Form>
                 )

@@ -89,23 +89,23 @@ export const getOneAppointment = async (token, appointmentId) => {
    return res.data
 }
 
-export const createAppointment = async (token, newAppointment) => {
+export const createAppointment = async (token, bodyAppointment) => {
     let config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     }
-    let res = await axios.post(`${URL}/appointments`, newAppointment, config)
+    let res = await axios.post(`${URL}/appointments`, bodyAppointment, config)
     return res
 }
 
-export const updateAppointment = async (token, updatedAppointmentId, editedAppointment) => {
+export const updateAppointment = async (token, updatedAppointmentId, bodyAppointment) => {
     let config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     }
-    let res = await axios.put(`${URL}/appointments/${updatedAppointmentId}`, editedAppointment, config)
+    let res = await axios.put(`${URL}/appointments/${updatedAppointmentId}`, bodyAppointment, config)
     return res
 }
 
