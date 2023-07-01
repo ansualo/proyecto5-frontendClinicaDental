@@ -3,13 +3,17 @@ import './AllAppointments.css'
 import { deleteAppointment, getAllAppointments } from "../../services/apiCalls";
 import { Col, Row, Container } from "react-bootstrap";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { editingAppointment, saveId } from "../appointmentSlice";
+import { useNavigate } from "react-router-dom";
 
 
 export const AllAppointments = () => {
 
     const [allAppointments, setAllAppointments] = useState([]);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
     const role = datos?.data?.roleId;
@@ -31,6 +35,12 @@ export const AllAppointments = () => {
             fetchAllAppointments()
         }
     }, [])
+
+    const isEditing = (appointmentId) => {
+        dispatch(saveId({ id: appointmentId }))
+        dispatch(editingAppointment(true))
+        navigate('/modificarcita')
+    }
 
     return (
         <div className="allAppointmentsDesign">
@@ -93,7 +103,7 @@ export const AllAppointments = () => {
                                             ? (
                                                 <Row className="buttonsRow">
                                                     <Col md={6} className="buttonsCol">
-                                                        <FunctionButton name="Modificar"></FunctionButton>
+                                                        <FunctionButton name="Modificar" action={() => {isEditing(appointment.id)}}></FunctionButton>
                                                     </Col>
                                                     <Col md={6} className="buttonsCol">
                                                         <FunctionButton name="Cancelar" action={() => { handleDelete(appointment.id) }}></FunctionButton>

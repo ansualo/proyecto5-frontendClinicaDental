@@ -76,7 +76,7 @@ export const AppointmentForm = () => {
         }
         
         setTimeout(() => {
-            navigate('/citas');
+            navigate('/usuario');
         }, 1500)
     
         setConfirmed("Su cita ha sido confirmada");
