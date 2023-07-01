@@ -37,16 +37,14 @@ export const updateProfile = async (body, token) => {
     return res.data
 }
 
-export const getAllProfiles = async (profilesInfo) => {
+export const getAllPatients = async (profilesInfo) => {
 
     return await axios.get(`${URL}/users/patients`, profilesInfo)
 }
 
-// TO CREATE APPOINTMENT
+export const getAllDentists = async (dentistProfile) => {
 
-export const getAllDentists = async (allDentists) => {
-
-    return await axios.get(`${URL}/users/dentists`, allDentists)
+    return await axios.get(`${URL}/users/dentists`, dentistProfile)
 }
 
 export const getAllTreatments = async (allTreatments) => {
@@ -63,8 +61,8 @@ export const getAllAppointments = async (token) => {
         },
     }
 
-   let res = await axios.get(`${URL}/appointments/all`, config)
-   return res.data
+    let res = await axios.get(`${URL}/appointments/all`, config)
+    return res.data
 }
 
 export const getDoctorAppointments = async (token) => {
@@ -74,8 +72,8 @@ export const getDoctorAppointments = async (token) => {
         },
     }
 
-   let res = await axios.get(`${URL}/appointments/doctor`, config)
-   return res.data
+    let res = await axios.get(`${URL}/appointments/doctor`, config)
+    return res.data
 }
 
 export const getPatientAppointments = async (token) => {
@@ -85,8 +83,8 @@ export const getPatientAppointments = async (token) => {
         },
     }
 
-   let res = await axios.get(`${URL}/appointments/patient`, config)
-   return res.data
+    let res = await axios.get(`${URL}/appointments/patient`, config)
+    return res.data
 }
 
 export const getOneAppointment = async (token, appointmentId) => {
@@ -96,8 +94,8 @@ export const getOneAppointment = async (token, appointmentId) => {
         },
     }
 
-   let res = await axios.get(`${URL}/appointments/patient/${appointmentId}`, config)
-   return res.data
+    let res = await axios.get(`${URL}/appointments/patient/${appointmentId}`, config)
+    return res.data
 }
 
 export const createAppointment = async (token, bodyAppointment) => {
