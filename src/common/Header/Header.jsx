@@ -52,8 +52,7 @@ export const Header = () => {
                         // dentist
                         <>
                           <Nav.Link href="/citas/all" className="me-4">Citas Clinica</Nav.Link>
-                          <Nav.Link href="/usuario/citas" className="me-4">Mis citas </Nav.Link>
-                          <Nav.Link href="/pedircita" className="me-4">Pedir cita</Nav.Link>
+                          <Nav.Link href="/citas/dentista" className="me-4">Mis citas </Nav.Link>
                         </>
                       )
                       : (

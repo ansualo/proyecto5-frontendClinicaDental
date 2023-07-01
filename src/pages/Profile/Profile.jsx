@@ -17,16 +17,17 @@ export const Profile = () => {
     const [body, setBody] = useState({});
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
+    const role = datos?.data?.roleId;
 
     const editHandler = (body, token) => {
         updateProfile(body, token)
             .then(setEditing(false));
     }
 
-    useEffect(()=>{
-        if(!editing){
+    useEffect(() => {
+        if (!editing) {
             getProfile(token)
-            .then((res)=> {setProfileInfo(res.data)})
+                .then((res) => { setProfileInfo(res.data) })
             // .catch(error => navigate('/')) para que nos lleve a home si no hay token??
         }
 
@@ -36,18 +37,24 @@ export const Profile = () => {
         <div className="profileDesign">
             <Container>
                 <Row className="buttons">
-                    <Col sm={10} md={3}>
-                        <NavigateButton name="Ver todas mis citas" path={'/citas'}></NavigateButton>
-                    </Col>
-                    {editing
-                        ?(
+                    {role === 2
+                        ? (<></>)
+                        : (
                             <Col sm={10} md={3}>
-                            <FunctionButton name="Confirmar" action={() => {editHandler(body, token)}}></FunctionButton>
+                                <NavigateButton name="Ver todas mis citas" path={'/citas'}></NavigateButton>
                             </Col>
                         )
-                        :(  <Col sm={10} md={3}>
-                            <FunctionButton name="Modificar perfil" action={() => {setEditing(true)}}></FunctionButton>
+                    }
+
+                    {editing
+                        ? (
+                            <Col sm={10} md={3}>
+                                <FunctionButton name="Confirmar" action={() => { editHandler(body, token) }}></FunctionButton>
                             </Col>
+                        )
+                        : (<Col sm={10} md={3}>
+                            <FunctionButton name="Modificar perfil" action={() => { setEditing(true) }}></FunctionButton>
+                        </Col>
                         )
                     }
                 </Row>
@@ -67,57 +74,57 @@ export const Profile = () => {
                     {editing
                         ? (
                             <>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Número de teléfono</div>
-                                <InputForm             
-                                    design= {"profileInfo inputMargin"} 
-                                    name={"phone"}
-                                    type={"text"} 
-                                    placeholder={profileInfo.phone} 
-                                    maxLength={15}
-                                    state= {setBody}
-                                />
-                            </Col>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Dirección</div>
-                                <InputForm             
-                                    design= {"profileInfo inputMargin"} 
-                                    name={"address"}
-                                    type={"text"} 
-                                    placeholder={profileInfo.address} 
-                                    maxLength={100}
-                                    state= {setBody}
-                                />
-                            </Col>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Email</div>
-                                <InputForm             
-                                    design= {"profileInfo inputMargin"} 
-                                    name={"email"}
-                                    type={"email"} 
-                                    placeholder={profileInfo.email} 
-                                    maxLength={40}
-                                    state= {setBody}
-                                    errorState={setInputError}
-                                />
-                                <div className="errorInput mb-5">{inputError.emailError}</div>
-                            </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Número de teléfono</div>
+                                    <InputForm
+                                        design={"profileInfo inputMargin"}
+                                        name={"phone"}
+                                        type={"text"}
+                                        placeholder={profileInfo.phone}
+                                        maxLength={15}
+                                        state={setBody}
+                                    />
+                                </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Dirección</div>
+                                    <InputForm
+                                        design={"profileInfo inputMargin"}
+                                        name={"address"}
+                                        type={"text"}
+                                        placeholder={profileInfo.address}
+                                        maxLength={100}
+                                        state={setBody}
+                                    />
+                                </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Email</div>
+                                    <InputForm
+                                        design={"profileInfo inputMargin"}
+                                        name={"email"}
+                                        type={"email"}
+                                        placeholder={profileInfo.email}
+                                        maxLength={40}
+                                        state={setBody}
+                                        errorState={setInputError}
+                                    />
+                                    <div className="errorInput mb-5">{inputError.emailError}</div>
+                                </Col>
                             </>
                         )
                         : (
                             <>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Número de teléfono</div>
-                                <div className="profileInfo">{profileInfo.phone}</div>
-                            </Col>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Dirección</div>
-                                <div className="profileInfo">{profileInfo.address}</div>
-                            </Col>
-                            <Col sm={10} md={6}>
-                                <div className="profileLabel">Email</div>
-                                <div className="profileInfo">{profileInfo.email}</div>
-                            </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Número de teléfono</div>
+                                    <div className="profileInfo">{profileInfo.phone}</div>
+                                </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Dirección</div>
+                                    <div className="profileInfo">{profileInfo.address}</div>
+                                </Col>
+                                <Col sm={10} md={6}>
+                                    <div className="profileLabel">Email</div>
+                                    <div className="profileInfo">{profileInfo.email}</div>
+                                </Col>
                             </>
                         )
                     }

@@ -42,7 +42,7 @@ export const getAllProfiles = async (profilesInfo) => {
     return await axios.get(`${URL}/users/patients`, profilesInfo)
 }
 
-// CREATE APPOINTMENT
+// TO CREATE APPOINTMENT
 
 export const getAllDentists = async (allDentists) => {
 
@@ -64,6 +64,17 @@ export const getAllAppointments = async (token) => {
     }
 
    let res = await axios.get(`${URL}/appointments/all`, config)
+   return res.data
+}
+
+export const getDoctorAppointments = async (token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+
+   let res = await axios.get(`${URL}/appointments/doctor`, config)
    return res.data
 }
 
