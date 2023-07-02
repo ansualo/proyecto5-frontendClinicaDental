@@ -2,7 +2,26 @@
     min-height: 85vh;
     width: 100vw;
     display: flex;
-    background-color:gainsboro;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#F7FFE5;
+}
+
+.homeContainer{
+    display: flex;
+    min-height: 65vh;
+}
+
+@media (max-width: 768px) {
+
+    .homeContainer{
+        flex-direction: column;
+    }
+
+    .square1{
+        font-size: medium;
+    }
 }
 
 .row-width{
@@ -10,31 +29,88 @@
 }
 
 .square1{
-    font-size: xx-large;
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    font-weight: bold;
+    font-size: xx-large;
+    background-color: #E1ECC8;
+    border-radius: 2em;
+    padding-left: 2em;
+    margin-left: 2em;
+    margin-bottom: 0.5em;
 }
 .square2{
     background-image: url('../../assets/img/menu2.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
-    padding-bottom: 10em;
+    background-size: cover;
+    border-radius: 2em;
+    margin: 2em;
 }
 
 .square3{
-    font-size: large;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #C4D7B2;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 2em;
+    margin: 1em;
+    padding-right: 1em;
+    padding-left: 2em;
 }
 
 .square4{
     background-image: url('../../assets/img/menu1.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    border-radius: 2em;
+    margin: 0.5em;
+    margin-top: 1em;
 }
 
+.square5{
+    background-color: #E1ECC8;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+}
+
+@media (max-width: 1024px) {
+
+    .homeContainer{
+        flex-direction: column;
+    }
+
+    .row-width{
+        min-width: 90vw;
+    }
+
+    .square1{
+        font-size: x-large;
+        margin-top: 1em;
+        padding: 1.5em;
+    }
+
+    .square2{
+        margin: 0.5em;
+    }
+
+    .square3{
+        font-size: small;
+        padding: 1em;
+    }
+
+    .square4{
+        height: 50vh;
+    }
+
+    .square5{
+        flex-direction: column;
+    }
+}

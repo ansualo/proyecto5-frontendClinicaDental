@@ -1,5 +1,19 @@
 .headerDesign{
     width: 100vw;
-    background-color:gainsboro;
+    height: 15vh;
+    background-color:#F7FFE5;
     font-weight: bold;
+}
+
+.logo{
+    width: 6vw;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .logo{
+        width: 20vw;
+        height: auto;
+    }
 }

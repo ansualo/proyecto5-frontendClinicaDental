@@ -10,6 +10,8 @@
     height: 85vh;
     width: 45vw;
     padding: 2em;
+    margin-left: 2em;
+    font-weight: bold;
 }
 
 .aboutImage{

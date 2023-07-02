@@ -1,24 +1,35 @@
 import React from 'react'
 import './Home.css'
-import { Col, Row } from 'react-bootstrap'
-import { NavigateButton } from '../../common/NavigateButton/NavigateButton';
+import { Col, Container, Row } from 'react-bootstrap'
 
 export const Home = () => {
 
-    return(
+    return (
         <div className="homeDesign">
-            <Row className="row-width">
-                <Col className="square1 px-5" sm={10} md={12}>Nos enfocamos en transformar sonrisas y mejorar vidas</Col>
-                <Col className="square2" sm={10} md={7}></Col>
-                <Col className="square3 px-5" sm={10} md={5}>
-                    Nuestro equipo de profesionales altamente capacitados está dedicado a ofrecerte tratamientos dentales de vanguardia, combinados con un enfoque cálido y acogedor
-                    <NavigateButton name="Pide tu cita" path='/citas'></NavigateButton>
-                </Col>
-
-            </Row>
-            <Row className="row-width">
-                <Col className="square4 mt-5" sm={10} md={12}></Col>
-            </Row>
+            <Container fluid className="homeContainer">
+                <Row className="row-width">
+                    <Col className="square1" xs={9} md={10}>
+                        Nos enfocamos en transformar sonrisas y mejorar vidas
+                    </Col>
+                    <Col className="square2" xs={6} md={6}></Col>
+                    <Col className="square3" xs={4} md={4}>
+                        Nuestro equipo está dedicado a ofrecerte tratamientos dentales de vanguardia, combinados con un enfoque cálido y acogedor
+                    </Col>
+                </Row>
+                <Row className="row-width">
+                    <Col className="square4" xs={11} md={11}></Col>
+                </Row>
+            </Container>
+            <Container fluid>
+                <Row>
+                    <Col className="square5 ms-5" xs={10} md={11}>
+                        <p className="mx-5">Lunes a Viernes</p>
+                        <p className="mx-5">09:00-14:00 15:00-19:00</p>
+                        <p className="mx-5">96 123 45 67</p>
+                        <p className="mx-5">C/ Guillem de castro 22, Valencia</p>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
