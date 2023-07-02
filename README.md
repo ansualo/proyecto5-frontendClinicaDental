@@ -63,17 +63,17 @@ En cuanto a los administradores, podrán acceder al perfil tanto de todos los pa
 
 A continuación se pueden ver algunas de las vistas:
 
->
-Home
+> 
+### Home
 <img src="/src/assets/readme/readme1.png">  
->
-Register
+
+### Register
 <img src="/src/assets/readme/readme2.png">
->
-Perfil
+
+### Perfil
 <img src="/src/assets/readme/readme3.png">
->
-Citas clínica
+
+### Citas clínica
 <img src="/src/assets/readme/readme4.png">
 
 ---
@@ -185,13 +185,16 @@ As for administrators, they will be able to access the profiles of all patients 
 
 Some of the views can be seen below:
 
-Home
+### Home
 <img src="/src/assets/readme/readme1.png">  
-Register
+
+### Register
 <img src="/src/assets/readme/readme2.png">
-Profile
+
+### Profile
 <img src="/src/assets/readme/readme3.png">
-Clinic appointments
+
+### Clinic appointments
 <img src="/src/assets/readme/readme4.png">
 
 ---
