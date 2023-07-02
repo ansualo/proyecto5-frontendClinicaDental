@@ -36,28 +36,6 @@ export const Profile = () => {
     return (
         <div className="profileDesign">
             <Container>
-                <Row className="buttons">
-                    {role === 2
-                        ? (<></>)
-                        : (
-                            <Col sm={10} md={3}>
-                                <NavigateButton name="Ver todas mis citas" path={'/citas'}></NavigateButton>
-                            </Col>
-                        )
-                    }
-
-                    {editing
-                        ? (
-                            <Col sm={10} md={3}>
-                                <FunctionButton name="Confirmar" action={() => { editHandler(body, token) }}></FunctionButton>
-                            </Col>
-                        )
-                        : (<Col sm={10} md={3}>
-                            <FunctionButton name="Modificar perfil" action={() => { setEditing(true) }}></FunctionButton>
-                        </Col>
-                        )
-                    }
-                </Row>
                 <Row className="userProfile">
                     <Col sm={10} md={6}>
                         <div className="profileLabel">Nombre</div>
@@ -77,7 +55,7 @@ export const Profile = () => {
                                 <Col sm={10} md={6}>
                                     <div className="profileLabel">Número de teléfono</div>
                                     <InputForm
-                                        design={"profileInfo inputMargin"}
+                                        design={"profileInfo editInput"}
                                         name={"phone"}
                                         type={"text"}
                                         placeholder={profileInfo.phone}
@@ -88,7 +66,7 @@ export const Profile = () => {
                                 <Col sm={10} md={6}>
                                     <div className="profileLabel">Dirección</div>
                                     <InputForm
-                                        design={"profileInfo inputMargin"}
+                                        design={"profileInfo editInput"}
                                         name={"address"}
                                         type={"text"}
                                         placeholder={profileInfo.address}
@@ -99,7 +77,7 @@ export const Profile = () => {
                                 <Col sm={10} md={6}>
                                     <div className="profileLabel">Email</div>
                                     <InputForm
-                                        design={"profileInfo inputMargin"}
+                                        design={"profileInfo editInput"}
                                         name={"email"}
                                         type={"email"}
                                         placeholder={profileInfo.email}
@@ -129,7 +107,30 @@ export const Profile = () => {
                         )
                     }
                 </Row>
+                <Row className="buttons">
+                    {role === 2
+                        ? (<></>)
+                        : (
+                            <Col sm={10} md={3}>
+                                <NavigateButton name="Ver todas mis citas" path={'/citas'}></NavigateButton>
+                            </Col>
+                        )
+                    }
+
+                    {editing
+                        ? (
+                            <Col sm={10} md={3}>
+                                <FunctionButton name="Confirmar" action={() => { editHandler(body, token) }}></FunctionButton>
+                            </Col>
+                        )
+                        : (<Col sm={10} md={3}>
+                            <FunctionButton name="Modificar perfil" action={() => { setEditing(true) }}></FunctionButton>
+                        </Col>
+                        )
+                    }
+                </Row>
             </Container>
+            
         </div>
     )
 
