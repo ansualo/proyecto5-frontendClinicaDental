@@ -1,7 +1,6 @@
 .allTreatmentsDesign{
     min-height: 85vh;
     width: 100vw;
-    background-color:gainsboro;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -12,16 +11,21 @@
     margin: 1em;
     width: 25vw;
     height: 60vh;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 2em;
+    background-color: #F7FFE5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .treatmentImage{
     height: 35vh;
+    background-size: cover;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
 }
 
 .treatmentTitle{
     text-align: center;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
 }
 

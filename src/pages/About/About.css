@@ -1,27 +1,29 @@
 .aboutDesign{
-    height: 85vh;
+    min-height: 85vh;
     width: 100vw;
-    background-color:gainsboro;
     display: flex;
     align-items: center;
 }
 
 .aboutText{
-    height: 85vh;
-    width: 45vw;
+    height: 75vh;
+    width: 50vw;
     padding: 2em;
-    margin-left: 2em;
+    margin: 2em;
+    margin-right: 0;
     font-weight: bold;
+    background-color: #C4D7B2;
+    border-radius: 2em;
 }
 
 .aboutImage{
-    height: 85vh;
-    width: 70vw;
+    height: 75vh;
+    width: 65vw;
     background-image: url('../../assets/img/about.jpg');
     background-repeat: no-repeat;
-    background-size: contain; 
-    margin-bottom: 5em;
-    margin-right: 1em;
+    background-size: cover; 
+    margin: 2em;
+    border-radius: 2em;
 }
 
 @media (min-width: 577px) and (max-width: 1024px) {

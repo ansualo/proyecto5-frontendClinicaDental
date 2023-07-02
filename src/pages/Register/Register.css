@@ -1,7 +1,6 @@
 .registerDesign{
-    min-height: 90vh;
+    min-height: 85vh;
     width: 100vw;
-    background-color:gainsboro;
     font-weight: bold;
     display: flex;
     flex-direction: column;
