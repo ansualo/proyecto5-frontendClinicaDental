@@ -1,5 +1,5 @@
 
-*First in Spanish then in* [*English*](https://github.com/ansualo/proyecto5-frontendClinicaDental#Frontend-detal-clinic)
+*First in Spanish then in* [*English*](https://github.com/ansualo/proyecto5-frontendClinicaDental#frontend-dental-clinic)
 
 
 
@@ -63,12 +63,16 @@ En cuanto a los administradores, podrán acceder al perfil tanto de todos los pa
 
 A continuación se pueden ver algunas de las vistas:
 
+>
 Home
 <img src="/src/assets/readme/readme1.png">  
+>
 Register
 <img src="/src/assets/readme/readme2.png">
+>
 Perfil
 <img src="/src/assets/readme/readme3.png">
+>
 Citas clínica
 <img src="/src/assets/readme/readme4.png">
 
