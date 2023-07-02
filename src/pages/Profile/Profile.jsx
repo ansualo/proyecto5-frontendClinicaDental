@@ -8,6 +8,7 @@ import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { InputForm } from "../../common/InputForm/InputForm";
 import { FunctionButton } from "../../common/FunctionButton/FunctionButton";
+import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
 
@@ -18,6 +19,7 @@ export const Profile = () => {
     const datos = useSelector(userData);
     const token = datos?.credentials?.token?.data?.token;
     const role = datos?.data?.roleId;
+    const navigate = useNavigate()
 
     const editHandler = (body, token) => {
         updateProfile(body, token)
@@ -28,7 +30,6 @@ export const Profile = () => {
         if (!editing) {
             getProfile(token)
                 .then((res) => { setProfileInfo(res.data) })
-            // .catch(error => navigate('/')) para que nos lleve a home si no hay token??
         }
 
     }, [editing])
