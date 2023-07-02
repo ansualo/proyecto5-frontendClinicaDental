@@ -1,5 +1,5 @@
 import React from "react";
-import './allTreatments.css'
+import './AllTreatments.css'
 import Card from 'react-bootstrap/Card';
 import treatment1 from '../../assets/img/treatment1.jpg'
 import treatment2 from '../../assets/img/treatment2.jpg'
