@@ -2,7 +2,6 @@
     min-height: 85vh;
     width: 100vw;
     display: flex;
-    background-color:gainsboro;
 }
 
 .appointmentsContainer{
@@ -49,7 +48,7 @@
 }
 
 .appointmentLabel{
-    background-color: rgb(48, 131, 55);
+    background-color: #588454;
     color: white;
     margin-bottom: 0.5em;
     text-align: start;

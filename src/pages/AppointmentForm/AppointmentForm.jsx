@@ -58,37 +58,36 @@ export const AppointmentForm = () => {
     const handleSubmit = async () => {
 
         const updatedAppointmentId = appointmentId;
-    
+
         const bodyAppointment = {
             "user_id_2": Number(selectedDoctor),
             "treatment_id": Number(selectedTreatment),
             "date": `${selectedDate.toISOString().split('T')[0]} ${selectedTime}:00`
         }
-    
-        {isEditing === true 
-            ?(
+
+        {
+            isEditing === true
+            ? (
                 await updateAppointment(token, appointmentId, bodyAppointment),
                 dispatch(editingAppointment(false))
             )
-            :(
+            : (
                 await createAppointment(token, bodyAppointment)
             )
         }
-        
+
         setTimeout(() => {
             navigate('/usuario');
         }, 1500)
-    
+
         setConfirmed("Su cita ha sido confirmada");
-    
     }
 
-    
     return (
         <div className="appointmentDesign">
             {confirmed !== ""
-                ? (<div className="confirmed">{confirmed}</div>)
-                : ( 
+                ? (<div>{confirmed}</div>)
+                : (
                     <Form>
                         <div className="formFields">
                             <SelectField
@@ -111,15 +110,15 @@ export const AppointmentForm = () => {
                                         label: treatment.name
                                     }
                                 ))}
-                                onChange={(e) => { setSelectedTreatment(e.target.value) }} 
+                                onChange={(e) => { setSelectedTreatment(e.target.value) }}
                             />
                             <Form.Group>
                                 <Form.Label>Seleccione la fecha:</Form.Label>
-                                <DatePicker 
+                                <DatePicker
                                     className={"dateDesign"}
                                     selected={selectedDate}
                                     minDate={currentDate}
-                                    onChange={(date) => setSelectedDate(date)} 
+                                    onChange={(date) => setSelectedDate(date)}
                                 />
                             </Form.Group>
                             <Form.Group>
@@ -132,22 +131,22 @@ export const AppointmentForm = () => {
                                     value={selectedTime}
                                     onChange={(e) => setSelectedTime(e.target.value)} />
                                 <datalist id="timelist">
-                                  <option value="09:00" />
-                                  <option value="09:30" />
-                                  <option value="10:00" />
-                                  <option value="10:30" />
-                                  <option value="11:00" />
-                                  <option value="11:30" />
-                                  <option value="12:00" />
-                                  <option value="12:30" />
-                                  <option value="13:00" />
-                                  <option value="13:30" />
-                                  <option value="16:00" />
-                                  <option value="16:30" />
-                                  <option value="17:00" />
-                                  <option value="17:30" />
-                                  <option value="18:00" />
-                                  <option value="18:30" />
+                                    <option value="09:00" />
+                                    <option value="09:30" />
+                                    <option value="10:00" />
+                                    <option value="10:30" />
+                                    <option value="11:00" />
+                                    <option value="11:30" />
+                                    <option value="12:00" />
+                                    <option value="12:30" />
+                                    <option value="13:00" />
+                                    <option value="13:30" />
+                                    <option value="16:00" />
+                                    <option value="16:30" />
+                                    <option value="17:00" />
+                                    <option value="17:30" />
+                                    <option value="18:00" />
+                                    <option value="18:30" />
                                 </datalist>
                             </Form.Group>
                         </div>
@@ -156,9 +155,6 @@ export const AppointmentForm = () => {
                     </Form>
                 )
             }
-
-
         </div>
-
     )
 }

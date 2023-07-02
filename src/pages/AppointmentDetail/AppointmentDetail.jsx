@@ -26,46 +26,46 @@ export const AppointmentDetail = () => {
 
     return (
 
-    <div className="appointmentsDesign">
-        <Container className = "appointmentsContainer">
-            <Row className="appointmentRow">
+    <div className="appointmentDetailDesign">
+        <Container className = "appointmentDetailContainer">
+            <Row className="appointmentDetailRow">
                 <Col sm={10} md={4}>
-                    <div className="appointmentLabel">Tratamiento</div>
+                    <div className="appointmentDetailLabel">Tratamiento</div>
                 </Col>
                 <Col sm={10} md={8}>
-                    <div className="appointmentInfo">{detailAppointment?.Treatment?.name}</div>
+                    <div className="appointmentDetailInfo">{detailAppointment?.Treatment?.name}</div>
                 </Col>
             </Row>
-            <Row className="appointmentRow">
+            <Row className="appointmentDetailRow">
                 <Col sm={10} md={4}>
-                    <div className="appointmentLabel">Fecha</div>
+                    <div className="appointmentDetailLabel">Fecha</div>
                 </Col>
                 <Col sm={10} md={8}>
-                    <div className="appointmentInfo">{new Date(detailAppointment?.date).toLocaleDateString()}</div>
+                    <div className="appointmentDetailInfo">{new Date(detailAppointment?.date).toLocaleDateString()}</div>
                 </Col>
             </Row>
-            <Row className="appointmentRow">
+            <Row className="appointmentDetailRow">
                 <Col sm={10} md={4}>
-                    <div className="appointmentLabel">Hora</div>
+                    <div className="appointmentDetailLabel">Hora</div>
                 </Col>
                 <Col sm={10} md={8}>
-                    <div className="appointmentInfo">{new Date(detailAppointment?.date).toLocaleTimeString()}</div>
+                    <div className="appointmentDetailInfo">{new Date(detailAppointment?.date).toLocaleTimeString()}</div>
                 </Col>
             </Row>
-            <Row className="appointmentRow">
+            <Row className="appointmentDetailRow">
                 <Col sm={10} md={4}>
-                    <div className="appointmentLabel">Doctor</div>
+                    <div className="appointmentDetailLabel">Doctor</div>
                 </Col>
                 <Col sm={10} md={8}>
-                    <div className="appointmentInfo">{`${detailAppointment?.doctor?.name} ${detailAppointment?.doctor?.surname}`}</div>
+                    <div className="appointmentDetailInfo">{`${detailAppointment?.doctor?.name} ${detailAppointment?.doctor?.surname}`}</div>
                 </Col>
             </Row>
-            <Row className="appointmentRow">
+            <Row className="appointmentDetailRow">
                 <Col sm={10} md={4}>
-                    <div className="appointmentLabel">Precio</div>
+                    <div className="appointmentDetailLabel">Precio</div>
                 </Col>
                 <Col sm={10} md={8}>
-                    <div className="appointmentInfo">{`${detailAppointment?.price}€`}</div>
+                    <div className="appointmentDetailInfo">{`${detailAppointment?.price}€`}</div>
                 </Col>
             </Row>
             <NavigateButton name={"Volver a todas mis citas"} path={'/citas'}></NavigateButton>

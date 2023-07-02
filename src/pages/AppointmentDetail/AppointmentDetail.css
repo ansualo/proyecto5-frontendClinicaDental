@@ -1,33 +1,33 @@
-.detailDesign{
+.appointmentDetailDesign{
     min-height: 85vh;
     width: 100vw;
-    background-color:gainsboro;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.appointmentsContainer{
+.appointmentDetailContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.appointmentRow{
+.appointmentDetailRow{
     display: flex;
     align-items: center;
+    width: 50vw;
 }
 
 @media (max-width: 768px) {
 
-    .appointmentRow{
+    .appointmentDetailRow{
         width: 90vw;
     }
 }
 
-.appointmentLabel{
-    background-color: rgb(48, 131, 55);
+.appointmentDetailLabel{
+    background-color: #588454;
     color: white;
     margin-bottom: 0.5em;
     text-align: start;
@@ -37,7 +37,7 @@
     border-radius: 0.5em;
 }
 
-.appointmentInfo{
+.appointmentDetailInfo{
     background-color: rgb(235, 235, 235);
     margin-bottom: 1em;
     text-align: start;

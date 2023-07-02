@@ -50,58 +50,58 @@ export const AllAppointments = () => {
                         allAppointments.map((appointment) => {
                             return (
                                 <div key={appointment.id}>
-                                    <div className="eachAllAppointment">
-                                        <Row className="appointmentRow">
+                                    <div className="eachAllAppointments">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Id</div>
+                                                <div className="allAppointmentsLabel">Id</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{(appointment.id)}</div>
+                                                <div className="allAppointmentsInfo">{(appointment.id)}</div>
                                             </Col>
                                         </Row>
-                                        <Row className="appointmentRow">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Fecha</div>
+                                                <div className="allAppointmentsLabel">Fecha</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{new Date(appointment.date).toLocaleString()}</div>
+                                                <div className="allAppointmentsInfo">{new Date(appointment.date).toLocaleString()}</div>
                                             </Col>
                                         </Row>
-                                        <Row className="appointmentRow">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Paciente</div>
+                                                <div className="allAppointmentsLabel">Paciente</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{`${appointment.patient.name} ${appointment.patient.surname}`}</div>
+                                                <div className="allAppointmentsInfo">{`${appointment.patient.name} ${appointment.patient.surname}`}</div>
                                             </Col>
                                         </Row>
-                                        <Row className="appointmentRow">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Tratamiento</div>
+                                                <div className="allAppointmentsLabel">Tratamiento</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{appointment.Treatment.name}</div>
+                                                <div className="allAppointmentsInfo">{appointment.Treatment.name}</div>
                                             </Col>
                                         </Row>
-                                        <Row className="appointmentRow">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Doctor</div>
+                                                <div className="allAppointmentsLabel">Doctor</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{`${appointment.doctor.name} ${appointment.doctor.surname}`}</div>
+                                                <div className="allAppointmentsInfo">{`${appointment.doctor.name} ${appointment.doctor.surname}`}</div>
                                             </Col>
                                         </Row>
-                                        <Row className="appointmentRow">
+                                        <Row className="allAppointmentsRow">
                                             <Col sm={10} md={5}>
-                                                <div className="appointmentLabel">Precio</div>
+                                                <div className="allAppointmentsLabel">Precio</div>
                                             </Col>
                                             <Col sm={10} md={7}>
-                                                <div className="appointmentInfo">{`${appointment.price} €`}</div>
+                                                <div className="allAppointmentsInfo">{`${appointment.price} €`}</div>
                                             </Col>
                                         </Row>
                                         {role === 3
                                             ? (
-                                                <Row className="buttonsRow">
+                                                <Row className="allAppointmentsButtons">
                                                     <Col md={6} className="buttonsCol">
                                                         <FunctionButton name="Modificar" action={() => {isEditing(appointment.id)}}></FunctionButton>
                                                     </Col>

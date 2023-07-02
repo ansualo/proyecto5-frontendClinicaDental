@@ -1,7 +1,6 @@
 .AllPatientsDesign{
     min-height: 85vh;
     width: 100vw;
-    background-color:gainsboro;
 }
 
 .profilesContainer{
@@ -33,7 +32,7 @@
 }
 
 .AllPatientsLabel{
-    background-color: rgb(48, 131, 55);
+    background-color: #588454;
     color: white;
     margin-bottom: 0.5em;
     text-align: start;

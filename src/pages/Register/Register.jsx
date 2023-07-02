@@ -50,8 +50,8 @@ export const Register = () => {
                     console.log(resultado.data.message)
 
                     setTimeout(() => {
-                        navigate('/');
-                    }, 4000)
+                        navigate('/login');
+                    }, 1500)
 
                     setRegistered('Te has registrado correctamente')
                 })
@@ -62,7 +62,7 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             {registered !== ""
-                ? (<div className="confirmed">{registered}</div>)
+                ? (<div>{registered}</div>)
                 : (<div className="formDesign">
                     <Row>
                         <Col sm={10} md={6}>
