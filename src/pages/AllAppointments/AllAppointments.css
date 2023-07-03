@@ -3,6 +3,13 @@
     width: 100vw;
 }
 
+.searchContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+}
+
 .allAppointmentsContainer{
     display: flex;
     flex-wrap: wrap;

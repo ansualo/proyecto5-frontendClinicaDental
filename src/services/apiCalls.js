@@ -103,6 +103,20 @@ export const getOneAppointment = async (token, appointmentId) => {
     return res.data
 }
 
+export const getAppointmentByName = async (patientName, token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    if (patientName !== "") {
+        let res = await axios.get(`${URL}/appointments/byname?name=${patientName}`, config)
+        return res.data
+    }
+    const allAppointments = await getAllAppointments(token)
+    return allAppointments
+}
+
 export const createAppointment = async (token, bodyAppointment) => {
     let config = {
         headers: {
