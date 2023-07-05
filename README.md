@@ -42,9 +42,6 @@ Tecnologías utilizadas:
 <a href="https://nextjs.org/">
     <img src= "https://user-images.githubusercontent.com/121863208/227808660-c8b59b3d-34bd-446f-83e1-8157f5a09b98.svg"/>
 </a>
-<a href="https://expressjs.com/">
-    <img src= "https://user-images.githubusercontent.com/121863208/227808665-1bf127e8-1ad3-4836-b42e-92bb5844a260.svg"/>
-</a>
 </div>
 
 ---
@@ -163,9 +160,6 @@ Used technologies:
 </a>
 <a href="https://nextjs.org/">
     <img src= "https://user-images.githubusercontent.com/121863208/227808660-c8b59b3d-34bd-446f-83e1-8157f5a09b98.svg"/>
-</a>
-<a href="https://expressjs.com/">
-    <img src= "https://user-images.githubusercontent.com/121863208/227808665-1bf127e8-1ad3-4836-b42e-92bb5844a260.svg"/>
 </a>
 </div>
 

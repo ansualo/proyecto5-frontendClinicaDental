@@ -60,7 +60,7 @@ export const AllAppointments = () => {
                         <InputForm
                             name={"searching"}
                             type={"text"}
-                            placeholder={"Buscar por nombre"}
+                            placeholder={"Busca por nombre del paciente"}
                             maxLength={40}
                             state={setSearch}
                             errorState={() => {}}
